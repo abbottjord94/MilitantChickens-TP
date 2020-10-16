@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< Updated upstream
     "C:\\Users\\Peter\\Desktop\\Projects\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Peter\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+    "C:\\Users\\Edmar\\Desktop\\fall2020\\cs346\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Edmar\\Desktop\\fall2020\\cs346\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Edmar\\Desktop\\fall2020\\cs346\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
+        "projectName": "MilitantChickensTransferProtocol.Terminal",
+        "projectPath": "C:\\Users\\Edmar\\Desktop\\fall2020\\cs346\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
+        "packagesPath": "C:\\Users\\Edmar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Edmar\\Desktop\\fall2020\\cs346\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Edmar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> Stashed changes
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

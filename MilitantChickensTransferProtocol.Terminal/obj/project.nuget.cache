@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "yHdxVUWbNyF+SymgKrPUg1Pi7lBJOck5cgxLW2jQEwcb/iadEAyQQ2JsHM5oRk7ktR0YCNiee7rk1V6dx8wmMg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Peter\\Desktop\\Projects\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
+=======
+  "dgSpecHash": "muofEYpENE0gKeU5Csx0D/8pXM/ZiszAQ4cTtgqmAcmwdZ09iVgCV2PNKcgrHpLHjd3g+y6MYc1/1xnref9Bkw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Edmar\\Desktop\\fall2020\\cs346\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
+>>>>>>> Stashed changes
   "expectedPackageFiles": [],
   "logs": []
 }
