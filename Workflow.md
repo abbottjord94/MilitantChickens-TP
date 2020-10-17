@@ -30,5 +30,14 @@ Note: DO NOT commit any changes unless you are working in a new branch
 - First, make sure that you have staged your changes by running the command `git add .`
 Note: You will not see any output from this command, do not be alarmed.
 - Next, commit your changes by running `git commit -m "<commit message>"` 
+Note: Be as descriptive as possible with your commit messages, but short enough that it will be within the commit message size.
 - Finally, push your changes by running `git push`
-![Commit And Push](WorkflowExamples/exbranch.PNG)
+![Commit And Push](WorkflowExamples/commitpush.PNG)
+
+## Creating a pull request:
+- Once you have pushed your changes, navigate to the github site where the main folder of the project is located. You should see something like this:
+![Commit And Push](WorkflowExamples/exampull.PNG)
+- Next, click on "Compare & pull request". You should see a page like below:
+![Commit And Push](WorkflowExamples/examplepr.PNG)
+- If you do not see the message "Able to merge. These branches can be automatically merged.", STOP. Do not attempt to merge.  
+- If you do see the message, add a more descriptive comment and click on "Create pull request". You are now done, and whoever manages the pull requests can now review your request and merge. DO NOT merge your PR without review from the manager. This can mess a lot of things up.
