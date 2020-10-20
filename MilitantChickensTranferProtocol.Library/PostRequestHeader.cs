@@ -13,5 +13,13 @@ namespace MilitantChickensTranferProtocol.Library
             filePath = _filePath;
             data = _data;
         }
+        public override byte[] ReturnRawHeader()
+        {
+            string rawHeader = string.Format("Code:{0}\nPath:{1}\n\n{2}",
+                                             requestCode,
+                                             filePath,
+                                             data);
+            return Encoding.UTF8.GetBytes(rawHeader);
+        }
     }
 }

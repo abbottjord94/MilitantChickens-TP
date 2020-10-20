@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace MilitantChickensTranferProtocol.Library
 {
@@ -14,6 +16,13 @@ namespace MilitantChickensTranferProtocol.Library
         {
             requestCode = _requestCode;
             filePath = _filePath;
+        }
+        public virtual byte[] ReturnRawHeader()
+        {
+            string rawHeader = string.Format("Code:{0}\nPath:{1}\n",
+                                             requestCode,
+                                             filePath);
+            return Encoding.UTF8.GetBytes(rawHeader);
         }
     }
 }
