@@ -41,3 +41,9 @@ Note: Be as descriptive as possible with your commit messages, but short enough 
 ![Commit And Push](WorkflowExamples/examplepr.PNG)
 - If you do not see the message "Able to merge. These branches can be automatically merged.", STOP. Do not attempt to merge.  
 - If you do see the message, add a more descriptive comment and click on "Create pull request". You are now done, and whoever manages the pull requests can now review your request and merge. DO NOT merge your PR without review from the manager. This can mess a lot of things up.
+
+## To pull from the main branch:
+ - Navigate to the repository folder in Powershell
+ - run `git branch --set-upstream-to=origin/main`
+ - run `git pull`
+ This should pull all recent changes from the main branch.
