@@ -12,19 +12,31 @@ namespace MilitantChickensTranferProtocol.Library
         {
 
         }
+        // Constructor that builds a reader from a byte[], plug and play with server
         public RequestReader(byte[] _rawHeader)
         {
             rawHeader = Encoding.UTF8.GetString(_rawHeader);
+            // Separate each line (Goal is to only grab line #1 -- response code
             string[] dataHeadSplit = rawHeader.Split("\n");
             try
             {
+                // Take the Code:<reqcode> and split the code off. Also verify its an int
+                // Using try/catch
                 int reqCode = Int32.Parse(dataHeadSplit[0].Split(":")[1]);
                 if (reqCode == 0)
                 {
+                    //TODO:
+                    // Parse Data and add it to constructor.
+
+                    // Since we used class inheritance, we can do this:
                     packet = new GetRequestHeader();
                 }
                 if (reqCode == 1)
                 {
+                    //TODO:
+                    // Parse Data and add it to constructor.
+
+                    // Since we used class inheritance, we can do this:
                     packet = new PostRequestHeader();
                 }
             }
