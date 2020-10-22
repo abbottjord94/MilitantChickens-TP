@@ -8,23 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Jordan\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\bwbuc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jordan\\Desktop\\fall 2020\\cs 346\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
+      "projectUniqueName": "D:\\346\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
       "projectName": "MilitantChickensTransferProtocol.Terminal",
-      "projectPath": "C:\\Users\\Jordan\\Desktop\\fall 2020\\cs 346\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
-      "packagesPath": "C:\\Users\\Jordan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jordan\\Desktop\\fall 2020\\cs 346\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\obj\\",
+      "projectPath": "D:\\346\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
+      "packagesPath": "C:\\Users\\bwbuc\\.nuget\\packages\\",
+      "outputPath": "D:\\346\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Jordan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\bwbuc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -62,7 +58,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
