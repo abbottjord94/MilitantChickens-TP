@@ -35,9 +35,14 @@ namespace MilitantChickensTranferProtocol.Library
                 {
                     //TODO:
                     // Parse Data and add it to constructor.
-
+                    string[] firstParse = rawHeader.Split("\n\n"); // one string is code : number newline path : path, second string is data sent
+                    string[] secondParse = firstParse[0].Split("\n");
+                    string data = firstParse[1];
+                    string code = secondParse[0].Split(":")[1];
+                    string path = secondParse[1].Split(":")[1];
+                    
                     // Since we used class inheritance, we can do this:
-                    packet = new PostRequestHeader();
+                    packet = new PostRequestHeader(path, Encoding.UTF8.GetBytes(data));
                 }
             }
             catch (Exception e)
