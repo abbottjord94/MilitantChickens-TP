@@ -27,9 +27,9 @@ namespace MilitantChickensTranferProtocol.Library
                 {
                     //TODO:
                     // Parse Data and add it to constructor.
-
+                    string filePath = dataHeadSplit[1].Split(":")[1];
                     // Since we used class inheritance, we can do this:
-                    packet = new GetRequestHeader();
+                    packet = new GetRequestHeader(filePath);
                 }
                 if (reqCode == 1)
                 {
