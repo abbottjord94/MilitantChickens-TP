@@ -5,7 +5,8 @@ In this guide, I will lay out how I personally use git/github to:
 - Commit to branches
 - Push from branches
 - Create a pull request
-Follow this guide to avoid:
+
+##### Follow this guide to avoid:
 
 ![Thanos Meme](WorkflowExamples/ThanosMemeTwoLinesOfCodeImproved.jpg)
 
