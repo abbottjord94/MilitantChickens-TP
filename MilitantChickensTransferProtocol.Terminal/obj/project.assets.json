@@ -1,26 +1,45 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "MilitantChickensTranferProtocol.Library/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/MilitantChickensTranferProtocol.Library.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MilitantChickensTranferProtocol.Library.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "MilitantChickensTranferProtocol.Library/1.0.0": {
+      "type": "project",
+      "path": "../MilitantChickensTranferProtocol.Library/MilitantChickensTranferProtocol.Library.csproj",
+      "msbuildProject": "../MilitantChickensTranferProtocol.Library/MilitantChickensTranferProtocol.Library.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "MilitantChickensTranferProtocol.Library >= 1.0.0"
+    ]
   },
   "packageFolders": {
-    "C:\\Users\\Peter\\.nuget\\packages\\": {}
+    "C:\\Users\\bwbuc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Peter\\Desktop\\h\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
+      "projectUniqueName": "D:\\346\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
       "projectName": "MilitantChickensTransferProtocol.Terminal",
-      "projectPath": "C:\\Users\\Peter\\Desktop\\h\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
-      "packagesPath": "C:\\Users\\Peter\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Peter\\Desktop\\h\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\obj\\",
+      "projectPath": "D:\\346\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
+      "packagesPath": "C:\\Users\\bwbuc\\.nuget\\packages\\",
+      "outputPath": "D:\\346\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Peter\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\bwbuc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -32,7 +51,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\346\\MilitantChickens-TP\\MilitantChickensTranferProtocol.Library\\MilitantChickensTranferProtocol.Library.csproj": {
+              "projectPath": "D:\\346\\MilitantChickens-TP\\MilitantChickensTranferProtocol.Library\\MilitantChickensTranferProtocol.Library.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -58,7 +81,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

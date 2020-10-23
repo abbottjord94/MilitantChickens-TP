@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MilitantChickensTranferProtocol.Library
 {
-    class PostRequestHeader : RequestHeader
+    public class PostRequestHeader : RequestHeader
     {
         byte[] data { get; set; }
         public PostRequestHeader()

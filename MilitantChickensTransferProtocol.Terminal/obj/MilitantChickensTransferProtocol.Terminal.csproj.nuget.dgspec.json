@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Peter\\Desktop\\h\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj": {}
+    "D:\\346\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Peter\\Desktop\\h\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj": {
+    "D:\\346\\MilitantChickens-TP\\MilitantChickensTranferProtocol.Library\\MilitantChickensTranferProtocol.Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Peter\\Desktop\\h\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
-        "projectName": "MilitantChickensTransferProtocol.Terminal",
-        "projectPath": "C:\\Users\\Peter\\Desktop\\h\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
-        "packagesPath": "C:\\Users\\Peter\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Peter\\Desktop\\h\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\obj\\",
+        "projectUniqueName": "D:\\346\\MilitantChickens-TP\\MilitantChickensTranferProtocol.Library\\MilitantChickensTranferProtocol.Library.csproj",
+        "projectName": "MilitantChickensTranferProtocol.Library",
+        "projectPath": "D:\\346\\MilitantChickens-TP\\MilitantChickensTranferProtocol.Library\\MilitantChickensTranferProtocol.Library.csproj",
+        "packagesPath": "C:\\Users\\bwbuc\\.nuget\\packages\\",
+        "outputPath": "D:\\346\\MilitantChickens-TP\\MilitantChickensTranferProtocol.Library\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Peter\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bwbuc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -52,7 +52,63 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\346\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\346\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
+        "projectName": "MilitantChickensTransferProtocol.Terminal",
+        "projectPath": "D:\\346\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
+        "packagesPath": "C:\\Users\\bwbuc\\.nuget\\packages\\",
+        "outputPath": "D:\\346\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\bwbuc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "D:\\346\\MilitantChickens-TP\\MilitantChickensTranferProtocol.Library\\MilitantChickensTranferProtocol.Library.csproj": {
+                "projectPath": "D:\\346\\MilitantChickens-TP\\MilitantChickensTranferProtocol.Library\\MilitantChickensTranferProtocol.Library.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
