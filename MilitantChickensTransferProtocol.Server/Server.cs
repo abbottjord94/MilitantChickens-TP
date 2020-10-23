@@ -34,14 +34,14 @@ namespace MilitantChickensTransferProtocol.Server
                     writer = new BinaryWriter(stream);
 
                     int len = reader.ReadInt32();
-                    byte[] msg = reader.ReadBytes(len);
+                    byte[] msg = reader.ReadBytes(len); //Read messages byte length
                     Console.WriteLine(System.Text.Encoding.UTF8.GetString(msg));
                     //Handle the server stuff from here
-/*
+                    /*
                     byte[] array = File.ReadAllBytes(file);
                     writer.Write(array);
                     stream.Flush();
-*/
+                    */
                 }
                 catch (Exception e)
                 {

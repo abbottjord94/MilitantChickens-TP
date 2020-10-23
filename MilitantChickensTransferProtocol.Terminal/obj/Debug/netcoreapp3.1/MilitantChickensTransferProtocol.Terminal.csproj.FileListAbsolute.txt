@@ -23,3 +23,16 @@ C:\Users\Jordan\Desktop\fall 2020\cs 346\MilitantChickens-TP\MilitantChickensTra
 C:\Users\Jordan\Desktop\fall 2020\cs 346\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.dll
 C:\Users\Jordan\Desktop\fall 2020\cs 346\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.pdb
 C:\Users\Jordan\Desktop\fall 2020\cs 346\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.genruntimeconfig.cache
+C:\Users\Jay\Desktop\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\bin\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.exe
+C:\Users\Jay\Desktop\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\bin\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.deps.json
+C:\Users\Jay\Desktop\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\bin\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.runtimeconfig.json
+C:\Users\Jay\Desktop\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\bin\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.runtimeconfig.dev.json
+C:\Users\Jay\Desktop\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\bin\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.dll
+C:\Users\Jay\Desktop\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\bin\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.pdb
+C:\Users\Jay\Desktop\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.csprojAssemblyReference.cache
+C:\Users\Jay\Desktop\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.AssemblyInfoInputs.cache
+C:\Users\Jay\Desktop\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.AssemblyInfo.cs
+C:\Users\Jay\Desktop\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.csproj.CoreCompileInputs.cache
+C:\Users\Jay\Desktop\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.dll
+C:\Users\Jay\Desktop\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.pdb
+C:\Users\Jay\Desktop\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.genruntimeconfig.cache
