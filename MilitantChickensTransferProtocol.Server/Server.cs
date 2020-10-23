@@ -33,7 +33,7 @@ namespace MilitantChickensTransferProtocol.Server
                     reader = new BinaryReader(stream);
                     writer = new BinaryWriter(stream);
 
-                    int len = reader.ReadInt32();
+                    int len = IPAddress.NetworkToHostOrder(reader.ReadInt32());
                     byte[] msg = reader.ReadBytes(len); //Read messages byte length
                     Console.WriteLine(System.Text.Encoding.UTF8.GetString(msg));
                     //Handle the server stuff from here
