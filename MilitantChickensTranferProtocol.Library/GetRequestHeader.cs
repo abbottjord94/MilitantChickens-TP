@@ -6,6 +6,10 @@ namespace MilitantChickensTranferProtocol.Library
 {
     class GetRequestHeader : RequestHeader
     {
+        public GetRequestHeader()
+        {
+            requestCode = 0;
+        }
         public GetRequestHeader(string _filePath)
         {
             requestCode = 0;
