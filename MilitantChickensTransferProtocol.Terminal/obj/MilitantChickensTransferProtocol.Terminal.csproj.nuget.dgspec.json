@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gary\\Desktop\\chickens\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj": {}
+    "C:\\Users\\Edmar\\Desktop\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gary\\Desktop\\chickens\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj": {
+    "C:\\Users\\Edmar\\Desktop\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gary\\Desktop\\chickens\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
+        "projectUniqueName": "C:\\Users\\Edmar\\Desktop\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
         "projectName": "MilitantChickensTransferProtocol.Terminal",
-        "projectPath": "C:\\Users\\Gary\\Desktop\\chickens\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
-        "packagesPath": "C:\\Users\\Gary\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gary\\Desktop\\chickens\\MilitantChickensTransferProtocol.Terminal\\obj\\",
+        "projectPath": "C:\\Users\\Edmar\\Desktop\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
+        "packagesPath": "C:\\Users\\Edmar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Edmar\\Desktop\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Gary\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Edmar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -52,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
