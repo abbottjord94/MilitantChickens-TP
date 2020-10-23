@@ -23,7 +23,7 @@ namespace MilitantChickensTransferProtocol.Terminal
                 BinaryWriter writer = new BinaryWriter(stream);
 
                 byte[] messageBytes = Encoding.UTF8.GetBytes(message);
-                writer.Write(IPAddress.HostToNetworkOrder(messageBytes.Length));
+                writer.Write(IPAddress.HostToNetworkOrder(messageBytes.Length)); //Change 
                 writer.Write(messageBytes);
 
                 //stream.Write(msg);
