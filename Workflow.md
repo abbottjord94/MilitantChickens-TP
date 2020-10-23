@@ -7,7 +7,7 @@ In this guide, I will lay out how I personally use git/github to:
 - Create a pull request
 Follow this guide to avoid:
 
-![Thanos Meme](WorkflowExamples/ThanosMemeTwoLinesOfCodeImproved.JPG)
+![Thanos Meme](WorkflowExamples/ThanosMemeTwoLinesOfCodeImproved.jpg)
 
 ---
 
