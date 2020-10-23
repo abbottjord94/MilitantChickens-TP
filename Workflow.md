@@ -6,7 +6,8 @@ In this guide, I will lay out how I personally use git/github to:
 - Push from branches
 - Create a pull request
 Follow this guide to avoid:
-![Expected Git Output](WorkflowExamples/ThanosMemeTwoLinesOfCodeImproved.JPG)
+
+![Thanos Meme](WorkflowExamples/ThanosMemeTwoLinesOfCodeImproved.JPG)
 
 ---
 
