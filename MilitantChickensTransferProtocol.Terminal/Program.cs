@@ -9,9 +9,6 @@ namespace MilitantChickensTransferProtocol.Terminal
         {
             Client client = new Client();
 
-            Console.WriteLine("Hello World!");
-            TcpConnectionClass.testFunction();
-
             //client.Connect("127.0.0.1", "Test Message");
             ClientRequestFactory factory = new ClientRequestFactory();
             RequestHeader header = factory.BuildHeader();

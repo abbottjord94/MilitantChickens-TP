@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MilitantChickensTranferProtocol.Library
 {
-    class RequestReader
+    public class RequestReader
     {
         public string rawHeader { get; set; }
         public RequestHeader packet { get; set; }

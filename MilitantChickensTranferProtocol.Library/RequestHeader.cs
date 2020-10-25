@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace MilitantChickensTranferProtocol.Library
@@ -23,6 +24,11 @@ namespace MilitantChickensTranferProtocol.Library
                                              requestCode,
                                              filePath);
             return Encoding.UTF8.GetBytes(rawHeader);
+        }
+
+        public virtual void HandleRequest(BinaryWriter _writer, BufferedStream _stream)
+        {
+
         }
     }
 }

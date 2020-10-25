@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using MilitantChickensTranferProtocol.Library;
 
 namespace MilitantChickensTransferProtocol.Server
 {
@@ -10,6 +11,7 @@ namespace MilitantChickensTransferProtocol.Server
         public static int ListenPort = 9001;
         public static TcpListener listener = new TcpListener(IPAddress.Any, ListenPort);
         public static TcpClient client = null;
+        public static RequestReader requestReader = null;
         static void Main(string[] args)
         {
             listener.Start();
@@ -35,13 +37,15 @@ namespace MilitantChickensTransferProtocol.Server
 
                     int len = IPAddress.NetworkToHostOrder(reader.ReadInt32());
                     byte[] msg = reader.ReadBytes(len); //Read messages byte length
-                    Console.WriteLine(System.Text.Encoding.UTF8.GetString(msg));
-                    //Handle the server stuff from here
-                    /*
-                    byte[] array = File.ReadAllBytes(file);
-                    writer.Write(array);
-                    stream.Flush();
-                    */
+
+                    //RequestReader's constructor parses the header automatically. 
+
+                    requestReader = new RequestReader(msg);
+
+                    //We can then add a function to each child class of RequestHeader (which is a member of RequestReader) to correctly handle the request.
+
+                    requestReader.packet.HandleRequest(writer, stream);
+
                 }
                 catch (Exception e)
                 {
