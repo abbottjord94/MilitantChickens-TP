@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
+using System.Net;
 
 /*response code needs an int for data/error
 byte array for the int
@@ -16,12 +18,12 @@ namespace MilitantChickensTranferProtocol.Library
     public class ResponseHeader
     {
         public int responseCode { get; set; }
-        public string description { get; set; }  // description of file
+        public byte[] description { get; set; }  // description of file
         public ResponseHeader()
         {
 
         }
-        public ResponseHeader(int _responseCode, string _description)
+        public ResponseHeader(int _responseCode, byte[] _description)
         {
             responseCode = _responseCode; //arguments
             description = _description; //arguments
@@ -32,6 +34,14 @@ namespace MilitantChickensTranferProtocol.Library
                                              responseCode,
                                              description);
             return Encoding.UTF8.GetBytes(rawHeader);
+        }
+
+        public void Send(BinaryWriter _writer, BufferedStream _stream)
+        {
+            byte[] payload = ReturnRawHeader();
+            _writer.Write(IPAddress.NetworkToHostOrder(payload.Length));
+            _writer.Write(payload);
+            _stream.Flush();
         }
     }
 }

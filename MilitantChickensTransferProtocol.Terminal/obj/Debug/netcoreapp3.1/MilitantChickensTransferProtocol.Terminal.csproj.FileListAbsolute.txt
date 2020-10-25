@@ -65,3 +65,6 @@ D:\346\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\n
 D:\346\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.dll
 D:\346\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.pdb
 D:\346\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.genruntimeconfig.cache
+C:\Users\Jordan\Desktop\fall 2020\cs 346\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\bin\Debug\netcoreapp3.1\MilitantChickensTranferProtocol.Library.dll
+C:\Users\Jordan\Desktop\fall 2020\cs 346\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\bin\Debug\netcoreapp3.1\MilitantChickensTranferProtocol.Library.pdb
+C:\Users\Jordan\Desktop\fall 2020\cs 346\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.csproj.CopyComplete
