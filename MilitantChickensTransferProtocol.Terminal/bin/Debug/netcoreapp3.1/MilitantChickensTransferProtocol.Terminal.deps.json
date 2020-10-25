@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v3.1": {
       "MilitantChickensTransferProtocol.Terminal/1.0.0": {
+        "dependencies": {
+          "MilitantChickensTranferProtocol.Library": "1.0.0"
+        },
         "runtime": {
           "MilitantChickensTransferProtocol.Terminal.dll": {}
+        }
+      },
+      "MilitantChickensTranferProtocol.Library/1.0.0": {
+        "runtime": {
+          "MilitantChickensTranferProtocol.Library.dll": {}
         }
       }
     }
   },
   "libraries": {
     "MilitantChickensTransferProtocol.Terminal/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MilitantChickensTranferProtocol.Library/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

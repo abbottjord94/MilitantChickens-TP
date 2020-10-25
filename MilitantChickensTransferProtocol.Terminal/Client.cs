@@ -4,11 +4,38 @@ using System.Net.Sockets;
 using System.Collections.Generic;
 using System.Text;
 using System.Net;
+using MilitantChickensTranferProtocol.Library;
 
 namespace MilitantChickensTransferProtocol.Terminal
 {
     class Client
     {
+
+        public void SendHeader(String server, byte[] header)
+        {
+            TcpClient client = null;
+            Int32 clientPort = 9001;
+            BufferedStream stream = null;
+            BinaryWriter writer = null;
+
+            try
+            {
+                client = new TcpClient(server, clientPort);
+                stream = new BufferedStream(client.GetStream());
+                writer = new BinaryWriter(stream);
+
+                writer.Write(IPAddress.HostToNetworkOrder(header.Length));
+                writer.Write(header);
+
+                stream.Flush();
+            }
+            catch
+            {
+                Exception e;
+            }
+
+        }
+
         public void Connect(String server, String message)
         {
             try
@@ -23,7 +50,7 @@ namespace MilitantChickensTransferProtocol.Terminal
                 BinaryWriter writer = new BinaryWriter(stream);
 
                 byte[] messageBytes = Encoding.UTF8.GetBytes(message);
-                writer.Write(IPAddress.HostToNetworkOrder(messageBytes.Length)); //Change 
+                writer.Write(IPAddress.HostToNetworkOrder(messageBytes.Length)); 
                 writer.Write(messageBytes);
 
                 //stream.Write(msg);
