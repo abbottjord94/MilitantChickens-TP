@@ -62,8 +62,8 @@ Note: Be as descriptive as possible with your commit messages, but short enough 
 
 ---
 
-##### Have you or a loved one been unable to merge automatically?
-##### You are entitled to use TortoiseGit:
+### Have you or a loved one been unable to merge automatically?
+### You are entitled to use TortoiseGit:
 
 ![Cheems Meme](WorkflowExamples/TortoiseGitMemeMilitantChickens.jpg)
 
@@ -73,10 +73,10 @@ Note: Be as descriptive as possible with your commit messages, but short enough 
 
 Note: I am only aware of TortoiseGit working on Windows Machines, install on MacOS or Linux at your own risk
 
--For the uninitiated, [download TortoiseGit](https://tortoisegit.org/download/)
--Follow install directions
--Once installed, you can type TortoiseGit in your Windows Search Bar to confirm the installation
-##WARNING: TortoiseGit operates automatically like a plug-in, you do not need to "start" TortoiseGit like an application
+- For the uninitiated, [download TortoiseGit](https://tortoisegit.org/download/)
+- Follow install directions
+- Once installed, you can type TortoiseGit in your Windows Search Bar to confirm the installation
+### WARNING: TortoiseGit operates automatically like a plug-in, you do not need to "start" TortoiseGit like an application
 
 ---
 
@@ -95,7 +95,7 @@ Note: I am only aware of TortoiseGit working on Windows Machines, install on Mac
 ---
 
 ## Comitting and Pushing Changes
-## WARNING: Do not follow this step unless you have created and are in your new branch, never commit directly to main.
+### WARNING: Do not follow this step unless you have created and are in your new branch, never commit directly to main.
 - Go to where your repository folder is located, and right-click
 
 ![Right Click](WorkflowExamples/RightClickRepo.png)
@@ -114,6 +114,6 @@ Note: I am only aware of TortoiseGit working on Windows Machines, install on Mac
 - Once the process is finished you can click the "Push" button
 
 ![Push Window](WorkflowExamples/PushWindowTortoise.png)
-- Click "OK" on the final window (pictured above)
+- Click "OK" on the final confirmation window
  
 
