@@ -98,14 +98,14 @@ Note: I am only aware of TortoiseGit working on Windows Machines, install on Mac
 ## WARNING: Do not follow this step unless you have created and are in your new branch, never commit directly to main.
 - Go to where your repository folder is located, and right-click
 
-![Right Click](WorkflowExamples/RightClickRepo.PNG)
+![Right Click](WorkflowExamples/RightClickRepo.png)
 - You will see a section of three options, select the option that reads "Git Commit -> "yourname-newbranch ..."
 #### IF: you see "main" go back to Visual Studio and select a different branch
 
-![Commit Menu](WorkflowExamples/TortoiseGitCommit.PNG) 
+![Commit Menu](WorkflowExamples/TortoiseGitCommit.png) 
 - After clicking on the "Git Commit -> ..." button, a window will pop-up
 
-![Commit Window](WorkflowExamples/CommitMenuTortoise.PNG)
+![Commit Window](WorkflowExamples/CommitMenuTortoise.png)
 - Type in your ATOMIC message that describes the work you did
 - TortoiseGit will automatically check if you made changes to code under the "Modified Files" path
 - New files will be placed under the "Not Versioned" path and normally require you to "check" them in manually
@@ -113,7 +113,7 @@ Note: I am only aware of TortoiseGit working on Windows Machines, install on Mac
 - A fancy pop-up window should show the "Tortoise" running to a folder
 - Once the process is finished you can click the "Push" button
 
-![Push Window](WorkflowExamples/PushWindowTortoise.PNG)
+![Push Window](WorkflowExamples/PushWindowTortoise.png)
 - Click "OK" on the final window (pictured above)
  
 
