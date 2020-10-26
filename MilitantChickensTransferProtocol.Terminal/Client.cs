@@ -10,6 +10,8 @@ namespace MilitantChickensTransferProtocol.Terminal
 {
     class Client
     {
+        public static ResponseReader responseReader = null;
+        //public static ResponseHeader responseHeader = null;
 
         public void SendHeader(String server, byte[] header)
         {
@@ -36,6 +38,11 @@ namespace MilitantChickensTransferProtocol.Terminal
 
         }
 
+        public void HandleResponse(bool isPost)
+        {
+            
+        }
+
         public void Connect(String server, String message)
         {
             try
@@ -52,6 +59,10 @@ namespace MilitantChickensTransferProtocol.Terminal
                 byte[] messageBytes = Encoding.UTF8.GetBytes(message);
                 writer.Write(IPAddress.HostToNetworkOrder(messageBytes.Length)); 
                 writer.Write(messageBytes);
+
+                responseReader = new ResponseReader(messageBytes);
+
+                //responseReader.header.ClientHandleResponse();
 
                 //stream.Write(msg);
 

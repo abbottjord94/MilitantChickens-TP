@@ -32,7 +32,7 @@ namespace MilitantChickensTranferProtocol.Library
         {
             string rawHeader = string.Format("Code:{0}\nPath:{1}\n",
                                              responseCode,
-                                             description);
+                                             Encoding.UTF8.GetString(description));
             return Encoding.UTF8.GetBytes(rawHeader);
         }
 
@@ -42,6 +42,19 @@ namespace MilitantChickensTranferProtocol.Library
             _writer.Write(IPAddress.NetworkToHostOrder(payload.Length));
             _writer.Write(payload);
             _stream.Flush();
+        }
+
+        //bool works because Post = 1, Get = 0
+        public void ClientHandleResponse(bool isPost)
+        {
+            if (responseCode == 1)
+            {
+                
+            }
+            else if (responseCode == 2)
+            {
+                //description
+            }
         }
     }
 }

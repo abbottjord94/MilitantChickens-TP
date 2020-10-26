@@ -7,10 +7,11 @@ using System.IO;
 
 namespace MilitantChickensTransferProtocol.Terminal
 {
-    class ClientRequestFactory
+    public class ClientRequestFactory
     {
+        public bool isPost = false;
         public RequestHeader BuildHeader()
-        {
+        { 
             RequestHeader clientHeader = new RequestHeader();
             int requestCode = -1;
             
@@ -23,10 +24,12 @@ namespace MilitantChickensTransferProtocol.Terminal
                 if (requestType == "GET" || requestType == "get")
                 {
                     requestCode = 0;
+                    //isPost automatically false
                 }
                 else if (requestType == "POST" || requestType == "post")
                 {
                     requestCode = 1;
+                    isPost = true;
                 }
                 else
                 {
