@@ -5,11 +5,16 @@ VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilitantChickensTransferProtocol.Terminal", "MilitantChickensTransferProtocol.Terminal\MilitantChickensTransferProtocol.Terminal.csproj", "{FAEDC2BC-CD75-47BE-9EFA-63915FE2B661}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilitantChickensTranferProtocol.Library", "MilitantChickensTranferProtocol.Library\MilitantChickensTranferProtocol.Library.csproj", "{D8EFD0DD-D6B7-4EB6-B8C0-EE8D8141310D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilitantChickensTranferProtocol.Library", "MilitantChickensTranferProtocol.Library\MilitantChickensTranferProtocol.Library.csproj", "{D8EFD0DD-D6B7-4EB6-B8C0-EE8D8141310D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilitantChickensTransferProtocol.UnitTests", "MilitantChickensTransferProtocol.UnitTests\MilitantChickensTransferProtocol.UnitTests.csproj", "{F5D9445F-9726-418A-A689-4AD320600715}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilitantChickensTransferProtocol.UnitTests", "MilitantChickensTransferProtocol.UnitTests\MilitantChickensTransferProtocol.UnitTests.csproj", "{F5D9445F-9726-418A-A689-4AD320600715}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilitantChickensTransferProtocol.Server", "MilitantChickensTransferProtocol.Server\MilitantChickensTransferProtocol.Server.csproj", "{59298D5E-D72B-494F-8704-8EDFE9B743D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilitantChickensTransferProtocol.Server", "MilitantChickensTransferProtocol.Server\MilitantChickensTransferProtocol.Server.csproj", "{59298D5E-D72B-494F-8704-8EDFE9B743D5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{2A3246E3-3DA7-4A5F-A4DA-437BCD652D60}"
+	ProjectSection(SolutionItems) = preProject
+		Cheese.txt = Cheese.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
