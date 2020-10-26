@@ -104,5 +104,9 @@ Note: I am only aware of TortoiseGit working on Windows Machines, install on Mac
 - TortoiseGit will automatically check if you made changes to code under the "Modified Files" path
 - New files will be placed under the "Not Versioned" path and normally require you to "check" them in manually
 - Finally, once you have checked your files and added your message click the Commit button with the down arrow in the bottom-right of the window
+- A fancy pop-up window should show the "Tortoise" running to a folder
+- Once the process is finished you can click the "Push" button
+![PushWindow](WorkflowExamples/PushWindowTortoise.PNG)
+- Click "OK" on the final window (pictured above)
  
 
