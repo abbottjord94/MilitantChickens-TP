@@ -10,6 +10,7 @@ namespace MilitantChickensTransferProtocol.Terminal
     public class ClientRequestFactory
     {
         public bool isPost = false;
+        public string filename;
         public RequestHeader BuildHeader()
         { 
             RequestHeader clientHeader = new RequestHeader();
@@ -41,8 +42,8 @@ namespace MilitantChickensTransferProtocol.Terminal
             if (requestCode == 0)
             {
                 Console.WriteLine("Please enter the filename you would like to receive:");
-                string filename = Console.ReadLine();
-
+                filename = Console.ReadLine();
+      
                 clientHeader = new GetRequestHeader(filename);
                 return clientHeader;
             }
