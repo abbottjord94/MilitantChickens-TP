@@ -8,80 +8,108 @@ using MilitantChickensTranferProtocol.Library;
 
 namespace MilitantChickensTransferProtocol.Terminal
 {
-    class Client
+    public class Client
     {
+        public TcpClient client = null;
+        public BinaryReader reader = null;
+        public BinaryWriter writer = null;
+        public BufferedStream stream = null;
+        public Int32 clientPort = 9001;
         public static ResponseReader responseReader = null;
+        public string server;
+        public bool connected = false;
+        public string basePath = System.AppDomain.CurrentDomain.BaseDirectory;
         //public static ResponseHeader responseHeader = null;
 
-        public void SendHeader(String server, byte[] header)
+        public Client()
         {
-            TcpClient client = null;
-            Int32 clientPort = 9001;
-            BufferedStream stream = null;
-            BinaryWriter writer = null;
+
+        }
+
+        public Client(string _server)
+        {
+            server = _server;
+        }
+
+        public void SendHeader(byte[] header)
+        {
 
             try
             {
+
+                /*
                 client = new TcpClient(server, clientPort);
                 stream = new BufferedStream(client.GetStream());
                 writer = new BinaryWriter(stream);
+                */
+                if (connected)
+                {
+                    writer.Write(IPAddress.HostToNetworkOrder(header.Length));
+                    writer.Write(header);
 
-                writer.Write(IPAddress.HostToNetworkOrder(header.Length));
-                writer.Write(header);
-
-                stream.Flush();
+                    stream.Flush();
+                } else
+                {
+                    Connect(server, clientPort);
+                }
             }
-            catch
+            catch(Exception e)
             {
-                Exception e;
+                Console.WriteLine(e);
             }
 
         }
 
-        public void HandleResponse(bool isPost)
+        public void HandleResponse(bool isPost, string filename)
         {
-            
+            try
+            {
+                int len = IPAddress.NetworkToHostOrder(reader.ReadInt32());
+                byte[] msg = reader.ReadBytes(len);
+
+                ResponseReader responseReader = new ResponseReader(msg);
+
+                if (isPost)
+                {
+                    //Regardless of response code, the behavior is the same if the client sends a POST request:
+                    Console.WriteLine(Encoding.UTF8.GetString(responseReader.header.description));
+                } else
+                {
+                    if(responseReader.header.responseCode == 1)
+                    {
+                        File.WriteAllBytes(Path.Join(basePath, filename), responseReader.header.description);
+                    } else if(responseReader.header.responseCode == 2)
+                    {
+                        Console.WriteLine(Encoding.UTF8.GetString(responseReader.header.description));
+                    } else
+                    {
+                        Console.WriteLine("Received a different response code than expected");
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
-        public void Connect(String server, String message)
+        public void Connect(String server, Int32 port)
         {
             try
             {
                 //Has to be the same as the server
-                Int32 clientPort = 9001; 
-                TcpClient client = new TcpClient(server, clientPort);
+                client = new TcpClient(server, port);
+                stream = new BufferedStream(client.GetStream());
+                writer = new BinaryWriter(stream);
+                reader = new BinaryReader(stream);
 
-
-                BufferedStream stream = new BufferedStream(client.GetStream());
-
-                BinaryWriter writer = new BinaryWriter(stream);
-
-                byte[] messageBytes = Encoding.UTF8.GetBytes(message);
-                writer.Write(IPAddress.HostToNetworkOrder(messageBytes.Length)); 
-                writer.Write(messageBytes);
-
-                responseReader = new ResponseReader(messageBytes);
-
-                //responseReader.header.ClientHandleResponse();
-
-                //stream.Write(msg);
-
-                stream.Flush();
-                //Test Connection of Client after Flush
-                if (client.Connected)
-                {
-                    Console.WriteLine("Message Sent from Client (?)");
-                }
-                else
-                {
-                    Console.WriteLine("Client is not Connected");
-                }
+                if (client.Connected) connected = true;
 
 
             }
-            catch
+            catch(Exception e)
             {
-                Exception e;
+                Console.WriteLine(e);
             }
         }
     }

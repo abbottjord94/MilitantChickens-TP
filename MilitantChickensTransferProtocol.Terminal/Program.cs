@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Sockets;
 using MilitantChickensTranferProtocol.Library;
 
 namespace MilitantChickensTransferProtocol.Terminal
@@ -13,9 +14,9 @@ namespace MilitantChickensTransferProtocol.Terminal
             ClientRequestFactory factory = new ClientRequestFactory();
             RequestHeader header = factory.BuildHeader();
             byte[] requestHeader = header.ReturnRawHeader();
-            client.HandleResponse(factory.isPost);
-
-            client.SendHeader("127.0.0.1", requestHeader);
+            client.Connect("127.0.0.1", 9001);
+            client.SendHeader(requestHeader);
+            client.HandleResponse(factory.isPost, factory.filename);
             //Debug Termination of Client -- TEMP DEBUG CODE
             Console.WriteLine("Press Enter to continue");
             Console.ReadLine();
