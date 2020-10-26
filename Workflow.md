@@ -82,10 +82,12 @@ Note: I am only aware of TortoiseGit working on Windows Machines, install on Mac
 
 ## Creating A Branch
 - In Visual Studio, navigate to the bottom-right corner of the screen (pictured below)
+
 ![Bottom Right](WorkflowExamples/BottomRightVisualStudio.PNG)
 - Click the up arrow that is next to "main" in the example
 - A pop-up menu should appear, select "New Branch"
 - A menu called "Team Explorer - Branches" will open (pictured below)
+
 ![Branch Explorer](WorkflowExamples/TeamExplorerBranches.PNG)
 - Where it says "Enter a branch name <Required>, type in a name in-context to your work (i.e. "jr408-tortoisegit")
 - Then click the no longer grayed-out "Create Branch"
@@ -95,19 +97,23 @@ Note: I am only aware of TortoiseGit working on Windows Machines, install on Mac
 ## Comitting and Pushing Changes
 ## WARNING: Do not follow this step unless you have created and are in your new branch, never commit directly to main.
 - Go to where your repository folder is located, and right-click
-![](WorkflowExamples/RightClickRepo.PNG)
+
+![Right Click](WorkflowExamples/RightClickRepo.PNG)
 - You will see a section of three options, select the option that reads "Git Commit -> "yourname-newbranch ..."
 #### IF: you see "main" go back to Visual Studio and select a different branch
-![](WorkflowExamples/TortoiseGitCommit.PNG) 
+
+![Commit Menu](WorkflowExamples/TortoiseGitCommit.PNG) 
 - After clicking on the "Git Commit -> ..." button, a window will pop-up
-![](WorkflowExamples/CommitMenuTortoise.PNG)
+
+![Commit Window](WorkflowExamples/CommitMenuTortoise.PNG)
 - Type in your ATOMIC message that describes the work you did
 - TortoiseGit will automatically check if you made changes to code under the "Modified Files" path
 - New files will be placed under the "Not Versioned" path and normally require you to "check" them in manually
 - Finally, once you have checked your files and added your message click the Commit button with the down arrow in the bottom-right of the window
 - A fancy pop-up window should show the "Tortoise" running to a folder
 - Once the process is finished you can click the "Push" button
-![](WorkflowExamples/PushWindowTortoise.PNG)
+
+![Push Window](WorkflowExamples/PushWindowTortoise.PNG)
 - Click "OK" on the final window (pictured above)
  
 
