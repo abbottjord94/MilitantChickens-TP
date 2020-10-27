@@ -27,9 +27,25 @@ namespace MilitantChickensTranferProtocol.Library
                 if(File.Exists(completePath))
                 {
                     //Send the response with the file
-                    byte[] file = File.ReadAllBytes(filePath);
-                    ResponseHeader response = new ResponseHeader(1, file);
-                    response.Send(_writer, _stream);
+                    //byte[] file = File.ReadAllBytes(filePath);
+                    
+                    byte[] filePart = new byte[1024];
+                    FileStream fs = new FileStream(filePath, FileMode.Open);
+                    long fileSize = fs.Length;
+                    if (fileSize < filePart.Length) Array.Resize<byte>(ref filePart, (int)fileSize);
+                    while (fs.Read(filePart, 0, filePart.Length) > 0)
+                    {
+                        //Console.WriteLine(Encoding.UTF8.GetString(filePart));
+                        ResponseHeader response = new ResponseHeader(1, filePart);
+                        response.Send(_writer, _stream);
+
+                        if (fileSize - fs.Position >= filePart.Length) Array.Resize<byte>(ref filePart, 1024);
+                        else Array.Resize<byte>(ref filePart, (int)(fileSize - fs.Position));
+                    }
+                    fs.Close();
+                    //I'm gonna make 3 the "end of file" response code.
+                    ResponseHeader endResponse = new ResponseHeader(3, Encoding.UTF8.GetBytes("EOF"));
+                    endResponse.Send(_writer, _stream);
                     Console.WriteLine("File Sent: {0}", filePath);
                 }
                 else

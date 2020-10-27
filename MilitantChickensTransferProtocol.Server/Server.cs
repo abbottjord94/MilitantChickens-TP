@@ -12,6 +12,7 @@ namespace MilitantChickensTransferProtocol.Server
         public static TcpListener listener = new TcpListener(IPAddress.Any, ListenPort);
         public static TcpClient client = null;
         public static RequestReader requestReader = null;
+
         static void Main(string[] args)
         {
             listener.Start();
