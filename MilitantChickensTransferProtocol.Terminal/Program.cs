@@ -20,7 +20,6 @@ namespace MilitantChickensTransferProtocol.Terminal
             //Debug Termination of Client -- TEMP DEBUG CODE
             Console.WriteLine("Press Enter to continue");
             Console.ReadLine();
-            
         }
     }
 }

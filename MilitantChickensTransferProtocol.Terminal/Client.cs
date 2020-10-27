@@ -36,12 +36,6 @@ namespace MilitantChickensTransferProtocol.Terminal
 
             try
             {
-
-                /*
-                client = new TcpClient(server, clientPort);
-                stream = new BufferedStream(client.GetStream());
-                writer = new BinaryWriter(stream);
-                */
                 if (connected)
                 {
                     writer.Write(IPAddress.HostToNetworkOrder(header.Length));
@@ -64,27 +58,54 @@ namespace MilitantChickensTransferProtocol.Terminal
         {
             try
             {
-                int len = IPAddress.NetworkToHostOrder(reader.ReadInt32());
-                byte[] msg = reader.ReadBytes(len);
-
-                ResponseReader responseReader = new ResponseReader(msg);
 
                 if (isPost)
                 {
                     //Regardless of response code, the behavior is the same if the client sends a POST request:
+                    int len = IPAddress.NetworkToHostOrder(reader.ReadInt32());
+                    byte[] msg = reader.ReadBytes(len);
+                    ResponseReader responseReader = new ResponseReader(msg);
                     Console.WriteLine(Encoding.UTF8.GetString(responseReader.header.description));
                 } else
                 {
+                    int len = IPAddress.NetworkToHostOrder(reader.ReadInt32());
+                    byte[] msg = reader.ReadBytes(len);
+                    ResponseReader responseReader = new ResponseReader(msg);
+
+                    FileStream fs = new FileStream(filename, FileMode.CreateNew);
+
+                    if (responseReader.header.responseCode == 2)
+                    {
+                        Console.WriteLine(Encoding.UTF8.GetString(responseReader.header.description));
+                    }
+                    else
+                    {
+                        while (responseReader.header.responseCode != 3)
+                        {
+                            Console.WriteLine(responseReader.header.description.Length);
+                            fs.Write(responseReader.header.description, 0, responseReader.header.description.Length);
+                            fs.Flush();
+                            len = IPAddress.NetworkToHostOrder(reader.ReadInt32());
+                            msg = reader.ReadBytes(len);
+                            responseReader = new ResponseReader(msg);
+                        }
+                        Console.WriteLine("File Received: {0}", filename);
+                        fs.Close();
+                    }
+                    /*
                     if(responseReader.header.responseCode == 1)
                     {
                         File.WriteAllBytes(Path.Join(basePath, filename), responseReader.header.description);
-                    } else if(responseReader.header.responseCode == 2)
+                    } 
+                    else if(responseReader.header.responseCode == 2)
                     {
                         Console.WriteLine(Encoding.UTF8.GetString(responseReader.header.description));
-                    } else
+                    } 
+                    else
                     {
                         Console.WriteLine("Received a different response code than expected");
                     }
+                    */
                 }
             }
             catch(Exception e)
