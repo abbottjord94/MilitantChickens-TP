@@ -20,7 +20,7 @@ namespace MilitantChickensTranferProtocol.Library
             var reqCode = reqPattern.Match(rawHeader);
 
             Regex fileData = new Regex(@"Description:(.*)", RegexOptions.Compiled);
-            var filedata = reqPattern.Match(rawHeader);
+            var filedata = fileData.Match(rawHeader);
 
             int respCode = Int32.Parse(reqCode.Groups[1].Value);
             string description = filedata.Groups[1].Value;

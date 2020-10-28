@@ -31,7 +31,7 @@ namespace MilitantChickensTranferProtocol.Library
                     //TODO:
                     // Parse Data and add it to constructor.
                     Regex pathPattern = new Regex(@"Path:([\/\w\d.]*)", RegexOptions.Compiled);
-                    var filePath = reqPattern.Match(rawHeader);
+                    var filePath = pathPattern.Match(rawHeader);
                     // Since we used class inheritance, we can do this:
                     packet = new GetRequestHeader(filePath.Groups[1].Value);
                 }
@@ -41,7 +41,7 @@ namespace MilitantChickensTranferProtocol.Library
                     // Parse Data and add it to constructor.
                     // one string is code : number newline path : path, second string is data sent
                     Regex pathPattern = new Regex(@"Path:([\/\w\d.]*)", RegexOptions.Compiled);
-                    var filePath = reqPattern.Match(rawHeader);
+                    var filePath = pathPattern.Match(rawHeader);
                     string path = filePath.Groups[1].Value;
 
                     Regex fileData = new Regex(@"Data:(.*)", RegexOptions.Compiled);
