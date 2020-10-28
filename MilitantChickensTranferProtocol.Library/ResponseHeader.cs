@@ -30,7 +30,7 @@ namespace MilitantChickensTranferProtocol.Library
         }
         public virtual byte[] ReturnRawHeader()
         {
-            string rawHeader = string.Format("Code:{0}\nPath:{1}\n",
+            string rawHeader = string.Format("Code:{0}\nDescription:{1}\n",
                                              responseCode,
                                              Encoding.UTF8.GetString(description));
             return Encoding.UTF8.GetBytes(rawHeader);

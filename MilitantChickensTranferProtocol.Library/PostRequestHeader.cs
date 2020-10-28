@@ -22,7 +22,7 @@ namespace MilitantChickensTranferProtocol.Library
         }
         public override byte[] ReturnRawHeader()
         {
-            string rawHeader = string.Format("Code:{0}\nPath:{1}\n\n{2}",
+            string rawHeader = string.Format("Code:{0}\nPath:{1}\nData:{2}",
                                              requestCode,
                                              filePath,
                                              data);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace MilitantChickensTranferProtocol.Library
 {
@@ -22,27 +23,31 @@ namespace MilitantChickensTranferProtocol.Library
             {
                 // Take the Code:<reqcode> and split the code off. Also verify its an int
                 // Using try/catch
-                int reqCode = Int32.Parse(dataHeadSplit[0].Split(":")[1]);
-                if (reqCode == 0)
+                Regex reqPattern = new Regex(@"Code:(\d)", RegexOptions.Compiled);
+                var reqCode = reqPattern.Match(rawHeader);
+                int request = Int32.Parse(reqCode.Groups[1].Value);
+                if (request == 0)
                 {
                     //TODO:
                     // Parse Data and add it to constructor.
-                    string filePath = dataHeadSplit[1].Split(":")[1];
+                    Regex pathPattern = new Regex(@"Path:([\/\w\d.]*)", RegexOptions.Compiled);
+                    var filePath = reqPattern.Match(rawHeader);
                     // Since we used class inheritance, we can do this:
-                    packet = new GetRequestHeader(filePath);
+                    packet = new GetRequestHeader(filePath.Groups[1].Value);
                 }
-                if (reqCode == 1)
+                if (request == 1)
                 {
                     //TODO:
                     // Parse Data and add it to constructor.
-                    string[] firstParse = rawHeader.Split("\n\n"); // one string is code : number newline path : path, second string is data sent
-                    string[] secondParse = firstParse[0].Split("\n");
-                    string data = firstParse[1];
-                    string code = secondParse[0].Split(":")[1];
-                    string path = secondParse[1].Split(":")[1];
-                    
+                    // one string is code : number newline path : path, second string is data sent
+                    Regex pathPattern = new Regex(@"Path:([\/\w\d.]*)", RegexOptions.Compiled);
+                    var filePath = reqPattern.Match(rawHeader);
+                    string path = filePath.Groups[1].Value;
+
+                    Regex fileData = new Regex(@"Data:(.*)", RegexOptions.Compiled);
+                    var filedata = reqPattern.Match(rawHeader);
                     // Since we used class inheritance, we can do this:
-                    packet = new PostRequestHeader(path, Encoding.UTF8.GetBytes(data));
+                    packet = new PostRequestHeader(path, Encoding.UTF8.GetBytes(filedata.Groups[1].Value));
                 }
             }
             catch (Exception e)
