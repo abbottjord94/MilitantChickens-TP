@@ -7,7 +7,7 @@ namespace MilitantChickensTranferProtocol.Library
 {
     public class ResponseReader
     {
-        public string rawHeader { get; set; }
+        public byte[] rawHeader { get; set; }
         public ResponseHeader header { get; set; }
         public ResponseReader()
         {
@@ -15,18 +15,16 @@ namespace MilitantChickensTranferProtocol.Library
         }
         public ResponseReader(byte[] _rawHeader)
         {
-            rawHeader = Encoding.UTF8.GetString(_rawHeader);
-            Regex reqPattern = new Regex(@"Code:(\d)", RegexOptions.Compiled);
-            var reqCode = reqPattern.Match(rawHeader);
+            rawHeader = _rawHeader;
+            byte respCode = _rawHeader[0];
+            byte[] desc = new byte[rawHeader.Length - 1];
+            for (int i = 0; i < desc.Length; i++)
+            {
+                desc[i] = _rawHeader[i + 1];
+            }
+            header = new ResponseHeader(respCode,desc);
 
-            Regex fileData = new Regex(@"Description:(.*)", RegexOptions.Compiled);
-            var filedata = reqPattern.Match(rawHeader);
-
-            int respCode = Int32.Parse(reqCode.Groups[1].Value);
-            string description = filedata.Groups[1].Value;
-
-            header = new ResponseHeader(respCode, Encoding.UTF8.GetBytes(description));
         }
-        
+
     }
 }
