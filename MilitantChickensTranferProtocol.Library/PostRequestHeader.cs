@@ -74,7 +74,9 @@ namespace MilitantChickensTranferProtocol.Library
 
                         else
                         {
-                            while(part_len >= 1024)
+                            fs.Write(msg);
+                            fs.Flush();
+                            while (part_len >= 1024)
                             {
                                 part_len = IPAddress.NetworkToHostOrder(_reader.ReadInt32());
                                 msg = _reader.ReadBytes(part_len);

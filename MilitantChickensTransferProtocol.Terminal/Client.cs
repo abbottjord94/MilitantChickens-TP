@@ -115,6 +115,7 @@ namespace MilitantChickensTransferProtocol.Terminal
                                 writer.Write(IPAddress.NetworkToHostOrder(filePart.Length));
                                 writer.Write(filePart);
                                 writer.Flush();
+                                filePart = new byte[1024];
                             }
                             return 0;
                         }
