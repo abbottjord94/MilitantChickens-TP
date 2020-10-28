@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Net;
+using System.Numerics;
 
 /*response code needs an int for data/error
 byte array for the int
@@ -38,9 +39,9 @@ namespace MilitantChickensTranferProtocol.Library
            return rawheader;
         }
 
-        public void Send(BinaryWriter _writer, BufferedStream _stream)
+        public void Send(BinaryWriter _writer, BufferedStream _stream, BigInteger _key)
         {
-            byte[] payload = ReturnRawHeader();
+            byte[] payload = dencrypt(ReturnRawHeader(), _key);
             _writer.Write(IPAddress.NetworkToHostOrder(payload.Length));
             _writer.Write(payload);
             _stream.Flush();
@@ -57,6 +58,19 @@ namespace MilitantChickensTranferProtocol.Library
             {
                 //description
             }
+        }
+
+        static byte[] dencrypt(byte[] _msg, BigInteger _key)
+        {
+            string k = _key.ToString();
+            byte[] messageBytes = _msg;
+            byte[] keyBytes = Encoding.UTF8.GetBytes(k);
+            for (int i = 0; i < messageBytes.Length; i++)
+            {
+                messageBytes[i] ^= keyBytes[i % keyBytes.Length];
+            }
+
+            return messageBytes;
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 using System.IO;
+using System.Numerics;
 
 namespace MilitantChickensTransferProtocol.Terminal
 {
@@ -11,7 +12,7 @@ namespace MilitantChickensTransferProtocol.Terminal
     {
         public bool isPost = false;
         public string filename;
-        public RequestHeader BuildHeader()
+        public RequestHeader BuildHeader(BigInteger _key)
         { 
             RequestHeader clientHeader = new RequestHeader();
             int requestCode = -1;
@@ -44,7 +45,7 @@ namespace MilitantChickensTransferProtocol.Terminal
                 Console.WriteLine("Please enter the filename you would like to receive:");
                 filename = Console.ReadLine();
       
-                clientHeader = new GetRequestHeader(filename);
+                clientHeader = new GetRequestHeader(filename, _key);
                 return clientHeader;
             }
 
