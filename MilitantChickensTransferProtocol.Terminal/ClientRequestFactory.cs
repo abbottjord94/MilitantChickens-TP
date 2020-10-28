@@ -55,13 +55,13 @@ namespace MilitantChickensTransferProtocol.Terminal
                 while (true)
                 {
                     Console.WriteLine("Please enter the filepath of the file you would like to send:");
-                    string filepath = Console.ReadLine();
+                    filename = Console.ReadLine();
 
                     // checks if file exists under given path
-                    if (File.Exists(filepath))
+                    if (File.Exists(filename))
                     {
-                        byte[] fileData = File.ReadAllBytes(filepath);
-                        clientHeader = new PostRequestHeader(filepath, fileData);
+                        // byte[] fileData = File.ReadAllBytes(filepath);
+                        clientHeader = new PostRequestHeader(filename, _key);
                         return clientHeader;
                     }
                     else

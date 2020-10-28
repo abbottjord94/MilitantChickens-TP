@@ -29,7 +29,7 @@ namespace MilitantChickensTranferProtocol.Library
             return Encoding.UTF8.GetBytes(rawHeader);
         }
 
-        public virtual void HandleRequest(BinaryWriter _writer, BufferedStream _stream)
+        public virtual void HandleRequest(BinaryWriter _writer, BinaryReader _reader, BufferedStream _stream)
         {
 
         }

@@ -47,10 +47,12 @@ namespace MilitantChickensTranferProtocol.Library
                     var filePath = pathPattern.Match(rawHeader);
                     string path = filePath.Groups[1].Value;
 
+                    /*
                     Regex fileData = new Regex(@"Data:(.*)", RegexOptions.Singleline);
                     var filedata = fileData.Match(rawHeader);
+                    */
                     // Since we used class inheritance, we can do this:
-                    packet = new PostRequestHeader(path, Encoding.UTF8.GetBytes(filedata.Groups[1].Value));
+                    packet = new PostRequestHeader(path, _key);
                 } 
                 else
                 {
