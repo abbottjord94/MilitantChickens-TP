@@ -2,11 +2,12 @@
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
 using MilitantChickensTranferProtocol.Library;
 
 namespace MilitantChickensTransferProtocol.Server
 {
-    class Server
+    public class Server
     {
         public static int ListenPort = 9001;
         public static TcpListener listener = new TcpListener(IPAddress.Any, ListenPort);
@@ -44,8 +45,16 @@ namespace MilitantChickensTransferProtocol.Server
                     requestReader = new RequestReader(msg);
 
                     //We can then add a function to each child class of RequestHeader (which is a member of RequestReader) to correctly handle the request.
-
-                    requestReader.packet.HandleRequest(writer, stream);
+                    try
+                    {
+                        requestReader.packet.HandleRequest(writer, stream);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        ResponseHeader failResponse = new ResponseHeader(2, Encoding.UTF8.GetBytes("Bad header received"));
+                        failResponse.Send(writer, stream);
+                    }
 
                 }
                 catch (Exception e)
