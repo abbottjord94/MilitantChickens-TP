@@ -23,7 +23,6 @@ namespace MilitantChickensTranferProtocol.Library
                 desc[i] = _rawHeader[i + 1];
             }
             header = new ResponseHeader(respCode,desc);
-
         }
 
     }
