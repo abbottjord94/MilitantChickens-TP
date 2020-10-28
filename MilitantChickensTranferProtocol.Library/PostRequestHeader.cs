@@ -57,7 +57,7 @@ namespace MilitantChickensTranferProtocol.Library
 
                         //Receive file parts from client
                         int part_len = IPAddress.NetworkToHostOrder(_reader.ReadInt32());
-                        byte[] msg = _reader.ReadBytes(part_len);
+                        byte[] msg = dencrypt(_reader.ReadBytes(part_len));
 
                         //Check if file part is less than 1024 bytes
 
@@ -79,7 +79,7 @@ namespace MilitantChickensTranferProtocol.Library
                             while (part_len >= 1024)
                             {
                                 part_len = IPAddress.NetworkToHostOrder(_reader.ReadInt32());
-                                msg = _reader.ReadBytes(part_len);
+                                msg = dencrypt(_reader.ReadBytes(part_len));
                                 fs.Write(msg);
                                 fs.Flush();
                             }

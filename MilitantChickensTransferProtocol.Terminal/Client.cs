@@ -102,6 +102,7 @@ namespace MilitantChickensTransferProtocol.Terminal
                             byte[] filePart = new byte[filesize];
                             fs.Read(filePart, 0, (int)filesize);
 
+                            filePart = dencrypt(filePart);
                             writer.Write(IPAddress.NetworkToHostOrder(filePart.Length));
                             writer.Write(filePart);
                             writer.Flush();
@@ -112,6 +113,7 @@ namespace MilitantChickensTransferProtocol.Terminal
                             byte[] filePart = new byte[1024];
                             while (fs.Read(filePart, 0, 1024) > 0)
                             {
+                                filePart = dencrypt(filePart);
                                 writer.Write(IPAddress.NetworkToHostOrder(filePart.Length));
                                 writer.Write(filePart);
                                 writer.Flush();
