@@ -80,3 +80,9 @@ C:\Users\sgb7\Desktop\Bin\MilitantChickens-TP\MilitantChickensTransferProtocol.T
 C:\Users\sgb7\Desktop\Bin\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.csproj.CoreCompileInputs.cache
 C:\Users\sgb7\Desktop\Bin\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.dll
 C:\Users\sgb7\Desktop\Bin\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.pdb
+C:\Users\Peter\Desktop\test\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.csprojAssemblyReference.cache
+C:\Users\Peter\Desktop\test\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.csproj.CoreCompileInputs.cache
+C:\Users\Peter\Desktop\test\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.AssemblyInfoInputs.cache
+C:\Users\Peter\Desktop\test\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.AssemblyInfo.cs
+C:\Users\Peter\Desktop\test\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.dll
+C:\Users\Peter\Desktop\test\MilitantChickens-TP\MilitantChickensTransferProtocol.Terminal\obj\Debug\netcoreapp3.1\MilitantChickensTransferProtocol.Terminal.pdb
