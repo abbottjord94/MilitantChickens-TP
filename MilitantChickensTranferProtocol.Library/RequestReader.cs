@@ -35,7 +35,7 @@ namespace MilitantChickensTranferProtocol.Library
                     // Since we used class inheritance, we can do this:
                     packet = new GetRequestHeader(filePath.Groups[1].Value);
                 }
-                if (request == 1)
+                else if (request == 1)
                 {
                     //TODO:
                     // Parse Data and add it to constructor.
@@ -48,6 +48,10 @@ namespace MilitantChickensTranferProtocol.Library
                     var filedata = fileData.Match(rawHeader);
                     // Since we used class inheritance, we can do this:
                     packet = new PostRequestHeader(path, Encoding.UTF8.GetBytes(filedata.Groups[1].Value));
+                } 
+                else
+                {
+
                 }
             }
             catch (Exception e)

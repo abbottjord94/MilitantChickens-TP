@@ -54,7 +54,7 @@ namespace MilitantChickensTransferProtocol.Terminal
 
         }
 
-        public void HandleResponse(bool isPost, string filename)
+        public int HandleResponse(bool isPost, string filename)
         {
             try
             {
@@ -66,6 +66,7 @@ namespace MilitantChickensTransferProtocol.Terminal
                     byte[] msg = reader.ReadBytes(len);
                     ResponseReader responseReader = new ResponseReader(msg);
                     Console.WriteLine(Encoding.UTF8.GetString(responseReader.header.description));
+                    return 0;
                 } else
                 {
                     int len = IPAddress.NetworkToHostOrder(reader.ReadInt32());
@@ -77,8 +78,9 @@ namespace MilitantChickensTransferProtocol.Terminal
                     if (responseReader.header.responseCode == 2)
                     {
                         Console.WriteLine(Encoding.UTF8.GetString(responseReader.header.description));
+                        return 0;
                     }
-                    else
+                    else if (responseReader.header.responseCode == 1)
                     {
                         while (responseReader.header.responseCode != 3)
                         {
@@ -90,26 +92,19 @@ namespace MilitantChickensTransferProtocol.Terminal
                         }
                         Console.WriteLine("File Received: {0}", filename);
                         fs.Close();
+                        return 0;
                     }
-                    /*
-                    if(responseReader.header.responseCode == 1)
-                    {
-                        File.WriteAllBytes(Path.Join(basePath, filename), responseReader.header.description);
-                    } 
-                    else if(responseReader.header.responseCode == 2)
-                    {
-                        Console.WriteLine(Encoding.UTF8.GetString(responseReader.header.description));
-                    } 
                     else
                     {
-                        Console.WriteLine("Received a different response code than expected");
+                        Console.WriteLine("Bad response received");
+                        return 0;
                     }
-                    */
                 }
             }
             catch(Exception e)
             {
                 Console.WriteLine(e);
+                return -1;
             }
         }
 

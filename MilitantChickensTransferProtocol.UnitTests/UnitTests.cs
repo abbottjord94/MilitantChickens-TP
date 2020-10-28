@@ -1,7 +1,10 @@
 using MilitantChickensTranferProtocol.Library;
+using MilitantChickensTransferProtocol.Terminal;
+using MilitantChickensTransferProtocol.Server;
 using NUnit.Framework;
 using System.Text;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
@@ -18,34 +21,44 @@ namespace MilitantChickensTransferProtocol.UnitTests
         [Test]
         public void EstablishConnectionTest()
         {
+            Client testClient = new Client();
+            //RequestHeader testHeader = new GetRequestHeader("cheese.txt");
+
+            testClient.Connect("127.0.0.1", 9001);
+            if (testClient.connected) Assert.Pass();
+            else Assert.Fail();
             //Test that the connection to the client is successfully established.
             //This will take place in conjunction with the client's equivalent test.
-            Assert.Pass();
         }
 
         [Test]
         public void SendResponseTest()
         {
             //Test to make sure that responses are successfully sent to the client
-            Assert.Pass();
-        }
 
-        [Test]
-        public void HandleRequestTest()
-        {
-            //Test to make sure that requests from the client are successfully handled.
-            Assert.Pass();
+            Client testClient = new Client();
+            RequestHeader testHeader = new GetRequestHeader("cheese.txt");
+            ResponseHeader testResponse = new ResponseHeader();
+            testClient.Connect("127.0.0.1", 9001);
+            testClient.SendHeader(testHeader.ReturnRawHeader());
+            if (testClient.HandleResponse(false, "cheese.txt") == 0) Assert.Pass();
+            else Assert.Fail();
         }
 
         [Test]
         public void HandleFailureTest()
         {
-            //Test to make sure that failures are handled properly; i.e., that the server doesn't crash when a failure occurs.
-            Assert.Pass();
+            Client testClient = new Client();
+            RequestHeader testHeader = new RequestHeader(9001, "cheese.txt");
+            ResponseHeader testResponse = new ResponseHeader();
+            testClient.Connect("127.0.0.1", 9001);
+            testClient.SendHeader(testHeader.ReturnRawHeader());
+            if (testClient.HandleResponse(false, "cheese.txt") == 0) Assert.Pass();
+            else Assert.Fail();
         }
+        /*
         public void SendFileTest()
         {
-            //Test to make sure that files are sent properly.
             Assert.Pass();
         }
         public void ReceiveFileTest()
@@ -53,6 +66,7 @@ namespace MilitantChickensTransferProtocol.UnitTests
             //Test to make sure that files are being received properly.
             Assert.Pass();
         }
+        */
     }
 
     public class ClientTests
@@ -65,46 +79,47 @@ namespace MilitantChickensTransferProtocol.UnitTests
         [Test]
         public void EstablishConnectionTest()
         {
-            //Test that the connection to the server is successfully established.
-            //This will take place in conjunction with the server's equivalent test.
-            Assert.Pass();
+            Client testClient = new Client();
+            //RequestHeader testHeader = new GetRequestHeader("cheese.txt");
+
+            testClient.Connect("127.0.0.1", 9001);
+            if (testClient.connected) Assert.Pass();
+            else Assert.Fail();
+            //Test that the connection to the client is successfully established.
+            //This will take place in conjunction with the client's equivalent test.
         }
 
         [Test]
         public void SendGetRequestTest()
         {
-            //Test to make sure that GET requests are successfully sent to the server
-            Assert.Pass();
+            Client testClient = new Client();
+            RequestHeader testHeader = new GetRequestHeader("cheese.txt");
+            testClient.Connect("127.0.0.1", 9001);
+            testClient.SendHeader(testHeader.ReturnRawHeader());
+            if (testClient.HandleResponse(false, "cheese.txt") == 0) Assert.Pass();
+            else Assert.Fail();
         }
         [Test]
         public void SendPostRequestTest()
         {
-            //Test to make sure that POST requests are successfully sent to the server
-            Assert.Pass();
-        }
-
-        [Test]
-        public void HandleResponseTest()
-        {
-            //Test to make sure that responses from the server are successfully handled.
-            Assert.Pass();
+            Client testClient = new Client();
+            byte[] testFile = File.ReadAllBytes(Path.Join(System.AppDomain.CurrentDomain.BaseDirectory, "cheese.txt"));
+            RequestHeader testHeader = new PostRequestHeader("cheese.txt", testFile);
+            testClient.Connect("127.0.0.1", 9001);
+            testClient.SendHeader(testHeader.ReturnRawHeader());
+            if (testClient.HandleResponse(true, "cheese.txt") == 0) Assert.Pass();
+            else Assert.Fail();
         }
 
         [Test]
         public void HandleFailureTest()
         {
-            //Test to make sure that failures are handled properly; i.e., that the client doesn't crash when a failure occurs.
-            Assert.Pass();
-        }
-        public void SendFileTest()
-        {
-            //Test to make sure that files are sent properly.
-            Assert.Pass();
-        }
-        public void ReceiveFileTest()
-        {
-            //Test to make sure that files are being received properly.
-            Assert.Pass();
+            Client testClient = new Client();
+            RequestHeader testHeader = new GetRequestHeader("cheese.txt");
+            testClient.Connect("127.0.0.1", 9001);
+            testClient.SendHeader(testHeader.ReturnRawHeader());
+            if (testClient.HandleResponse(false, "cheese.txt") == 0) Assert.Pass();
+            else Assert.Fail();
         }
     }
 }
