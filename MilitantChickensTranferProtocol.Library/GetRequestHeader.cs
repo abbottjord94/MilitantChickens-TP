@@ -20,7 +20,7 @@ namespace MilitantChickensTranferProtocol.Library
             Console.WriteLine("GET Request Received: {0}", filePath);
         }
 
-        public override void HandleRequest(BinaryWriter _writer, BufferedStream _stream)
+        public override void HandleRequest(BinaryWriter _writer, BinaryReader _reader, BufferedStream _stream)
         {
             try
             {

@@ -74,7 +74,7 @@ namespace MilitantChickensTransferProtocol.Server
                     //We can then add a function to each child class of RequestHeader (which is a member of RequestReader) to correctly handle the request.
                     try
                     {
-                        requestReader.packet.HandleRequest(writer, stream);
+                        requestReader.packet.HandleRequest(writer, reader, stream);
                     }
                     catch (Exception e)
                     {

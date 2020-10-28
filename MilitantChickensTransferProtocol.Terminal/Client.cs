@@ -88,9 +88,49 @@ namespace MilitantChickensTransferProtocol.Terminal
                     int len = IPAddress.NetworkToHostOrder(reader.ReadInt32());
                     byte[] msg = reader.ReadBytes(len);
                     ResponseReader responseReader = new ResponseReader(msg, s);
-                    Console.WriteLine(Encoding.UTF8.GetString(responseReader.header.description));
-                    return 0;
-                } else
+                    if (responseReader.header.responseCode == 2)
+                    {
+                        Console.WriteLine(Encoding.UTF8.GetString(responseReader.header.description));
+                        return -1;
+                    }
+                    else if (responseReader.header.responseCode == 1)
+                    {
+                        FileStream fs = new FileStream(filename, FileMode.Open);
+                        long filesize = fs.Length;
+                        if (filesize < 1024)
+                        {
+                            byte[] filePart = new byte[filesize];
+                            fs.Read(filePart, 0, (int)filesize);
+
+                            filePart = dencrypt(filePart);
+                            writer.Write(IPAddress.NetworkToHostOrder(filePart.Length));
+                            writer.Write(filePart);
+                            writer.Flush();
+                            return 0;
+                        }
+                        else
+                        {
+                            byte[] filePart = new byte[1024];
+                            while (fs.Read(filePart, 0, 1024) > 0)
+                            {
+                                filePart = dencrypt(filePart);
+                                writer.Write(IPAddress.NetworkToHostOrder(filePart.Length));
+                                writer.Write(filePart);
+                                writer.Flush();
+                                filePart = new byte[1024];
+                            }
+                            return 0;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid Response Received");
+                        return -1;
+                    }
+
+                 }
+                
+                else
                 {
                     int len = IPAddress.NetworkToHostOrder(reader.ReadInt32());
                     byte[] msg = reader.ReadBytes(len);
