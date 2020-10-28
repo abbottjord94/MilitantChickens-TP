@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Numerics;
 using System.Text;
 
 namespace MilitantChickensTranferProtocol.Library
@@ -9,14 +10,16 @@ namespace MilitantChickensTranferProtocol.Library
     {
         public int requestCode { get; set; }
         public string filePath { get; set; }
+        public static BigInteger key { get; set; }
         public RequestHeader()
         {
 
         }
-        public RequestHeader (int _requestCode, string _filePath)
+        public RequestHeader (int _requestCode, string _filePath, BigInteger _key)
         {
             requestCode = _requestCode;
             filePath = _filePath;
+            key = _key;
         }
         public virtual byte[] ReturnRawHeader()
         {
@@ -31,6 +34,19 @@ namespace MilitantChickensTranferProtocol.Library
 
         }
 
-       
+        public static byte[] dencrypt(byte[] _msg)
+        {
+            string k = key.ToString();
+            byte[] messageBytes = _msg;
+            byte[] keyBytes = Encoding.UTF8.GetBytes(k);
+            for (int i = 0; i < messageBytes.Length; i++)
+            {
+                messageBytes[i] ^= keyBytes[i % keyBytes.Length];
+            }
+
+            return messageBytes;
+        }
+
+
     }
 }

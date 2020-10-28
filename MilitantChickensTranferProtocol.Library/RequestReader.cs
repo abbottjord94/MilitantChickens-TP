@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -9,14 +10,16 @@ namespace MilitantChickensTranferProtocol.Library
     {
         public string rawHeader { get; set; }
         public RequestHeader packet { get; set; }
+        public static BigInteger key;
         public RequestReader()
         {
 
         }
         // Constructor that builds a reader from a byte[], plug and play with server
-        public RequestReader(byte[] _rawHeader)
+        public RequestReader(byte[] _rawHeader, BigInteger _key)
         {
-            rawHeader = Encoding.UTF8.GetString(_rawHeader);
+            key = _key;
+            rawHeader = Encoding.UTF8.GetString(dencrypt(_rawHeader));
             // Separate each line (Goal is to only grab line #1 -- response code
             //string[] dataHeadSplit = rawHeader.Split("\n");
             try
@@ -33,7 +36,7 @@ namespace MilitantChickensTranferProtocol.Library
                     Regex pathPattern = new Regex(@"Path:([\/\w\d.]*)", RegexOptions.Compiled);
                     var filePath = pathPattern.Match(rawHeader);
                     // Since we used class inheritance, we can do this:
-                    packet = new GetRequestHeader(filePath.Groups[1].Value);
+                    packet = new GetRequestHeader(filePath.Groups[1].Value, key);
                 }
                 else if (request == 1)
                 {
@@ -59,5 +62,18 @@ namespace MilitantChickensTranferProtocol.Library
                 Console.WriteLine(e);
             }
         }
+        static byte[] dencrypt(byte[] msg)
+        {
+            string k = key.ToString();
+            byte[] messageBytes = msg;
+            byte[] keyBytes = Encoding.UTF8.GetBytes(k);
+            for (int i = 0; i < messageBytes.Length; i++)
+            {
+                messageBytes[i] ^= keyBytes[i % keyBytes.Length];
+            }
+
+            return messageBytes;
+        }
+
     }
 }

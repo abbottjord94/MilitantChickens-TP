@@ -12,9 +12,9 @@ namespace MilitantChickensTransferProtocol.Terminal
 
             //client.Connect("127.0.0.1", "Test Message");
             ClientRequestFactory factory = new ClientRequestFactory();
-            RequestHeader header = factory.BuildHeader();
-            byte[] requestHeader = header.ReturnRawHeader();
             client.Connect("127.0.0.1", 9001);
+            RequestHeader header = factory.BuildHeader(client.key);
+            byte[] requestHeader = header.ReturnRawHeader();
             client.SendHeader(requestHeader);
             client.HandleResponse(factory.isPost, factory.filename);
             //Debug Termination of Client -- TEMP DEBUG CODE

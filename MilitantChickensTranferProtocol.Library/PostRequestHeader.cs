@@ -39,7 +39,7 @@ namespace MilitantChickensTranferProtocol.Library
                     //Fail, file already exists.
                     string descriptionString = "File already exists at: " + filePath;
                     ResponseHeader response = new ResponseHeader(2, Encoding.UTF8.GetBytes(descriptionString));
-                    response.Send(_writer, _stream);
+                    response.Send(_writer, _stream, key);
                     Console.WriteLine(descriptionString);
 
                 }
@@ -51,7 +51,7 @@ namespace MilitantChickensTranferProtocol.Library
                         File.WriteAllBytes(completePath, data);
                         string descriptionString = "File posted successfully: " + filePath;
                         ResponseHeader response = new ResponseHeader(1, Encoding.UTF8.GetBytes(descriptionString));
-                        response.Send(_writer, _stream);
+                        response.Send(_writer, _stream, key);
                         Console.WriteLine(descriptionString);
 
                     }
@@ -59,7 +59,7 @@ namespace MilitantChickensTranferProtocol.Library
                     {
                         string descriptionString = "File did not post successfully: " + filePath + ": " + e;
                         ResponseHeader response = new ResponseHeader(2, Encoding.UTF8.GetBytes(descriptionString));
-                        response.Send(_writer, _stream);
+                        response.Send(_writer, _stream, key);
                         Console.WriteLine(descriptionString);
 
                     }

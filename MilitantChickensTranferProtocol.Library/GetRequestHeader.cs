@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Numerics;
 using System.Text;
 
 namespace MilitantChickensTranferProtocol.Library
@@ -11,10 +12,11 @@ namespace MilitantChickensTranferProtocol.Library
         {
             requestCode = 0;
         }
-        public GetRequestHeader(string _filePath)
+        public GetRequestHeader(string _filePath, BigInteger _key)
         {
             requestCode = 0;
             filePath = _filePath;
+            key = _key;
             Console.WriteLine("GET Request Received: {0}", filePath);
         }
 
@@ -37,7 +39,7 @@ namespace MilitantChickensTranferProtocol.Library
                     {
                         //Console.WriteLine(Encoding.UTF8.GetString(filePart));
                         ResponseHeader response = new ResponseHeader(1, filePart);
-                        response.Send(_writer, _stream);
+                        response.Send(_writer, _stream, key);
 
                         if (fileSize - fs.Position >= filePart.Length) Array.Resize<byte>(ref filePart, 1024);
                         else Array.Resize<byte>(ref filePart, (int)(fileSize - fs.Position));
@@ -45,7 +47,7 @@ namespace MilitantChickensTranferProtocol.Library
                     fs.Close();
                     //I'm gonna make 3 the "end of file" response code.
                     ResponseHeader endResponse = new ResponseHeader(3, Encoding.UTF8.GetBytes("EOF"));
-                    endResponse.Send(_writer, _stream);
+                    endResponse.Send(_writer, _stream, key);
                     Console.WriteLine("File Sent: {0}", filePath);
                 }
                 else
@@ -53,7 +55,7 @@ namespace MilitantChickensTranferProtocol.Library
                     //Send a failure response.
                     string descriptionString = "File not found: " + filePath;
                     ResponseHeader response = new ResponseHeader(2, Encoding.UTF8.GetBytes(descriptionString));
-                    response.Send(_writer, _stream);
+                    response.Send(_writer, _stream, key);
                     Console.WriteLine(descriptionString);
                 }
             }
