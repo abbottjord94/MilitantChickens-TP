@@ -32,6 +32,21 @@ namespace MilitantChickensTransferProtocol.UnitTests
         }
 
         [Test]
+        public void HandleRequestTest()
+        {
+            //Test to make sure that requests are successfully handled
+
+            Client testClient = new Client();
+            RequestHeader testHeader = new GetRequestHeader("cheese.txt");
+            ResponseHeader testResponse = new ResponseHeader();
+            ResponseHeader failResponse = new ResponseHeader(2, Encoding.UTF8.GetBytes("Bad header received"));
+            testClient.Connect("127.0.0.1", 9001);
+            testClient.SendHeader(testHeader.ReturnRawHeader());
+            if (testResponse == failResponse) Assert.Fail();
+            else Assert.Pass();
+        }
+
+        [Test]
         public void SendResponseTest()
         {
             //Test to make sure that responses are successfully sent to the client
@@ -60,13 +75,20 @@ namespace MilitantChickensTransferProtocol.UnitTests
         public void SendFileTest()
         {
             Assert.Pass();
-        }
+        }*/
         public void ReceiveFileTest()
         {
             //Test to make sure that files are being received properly.
+
+            Client testClient = new Client();
+            RequestHeader testHeader = new PostRequestHeader("cheese.txt");
+            ResponseHeader testResponse = new ResponseHeader();
+            testClient.Connect("127.0.0.1", 9001);
+            testClient.SendHeader(testHeader.ReturnRawHeader());
+            // Not finished yet
+
             Assert.Pass();
         }
-        */
     }
 
     public class ClientTests
