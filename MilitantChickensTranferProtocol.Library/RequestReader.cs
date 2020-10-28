@@ -18,7 +18,7 @@ namespace MilitantChickensTranferProtocol.Library
         {
             rawHeader = Encoding.UTF8.GetString(_rawHeader);
             // Separate each line (Goal is to only grab line #1 -- response code
-            string[] dataHeadSplit = rawHeader.Split("\n");
+            //string[] dataHeadSplit = rawHeader.Split("\n");
             try
             {
                 // Take the Code:<reqcode> and split the code off. Also verify its an int
@@ -31,7 +31,7 @@ namespace MilitantChickensTranferProtocol.Library
                     //TODO:
                     // Parse Data and add it to constructor.
                     Regex pathPattern = new Regex(@"Path:([\/\w\d.]*)", RegexOptions.Compiled);
-                    var filePath = reqPattern.Match(rawHeader);
+                    var filePath = pathPattern.Match(rawHeader);
                     // Since we used class inheritance, we can do this:
                     packet = new GetRequestHeader(filePath.Groups[1].Value);
                 }
@@ -41,11 +41,11 @@ namespace MilitantChickensTranferProtocol.Library
                     // Parse Data and add it to constructor.
                     // one string is code : number newline path : path, second string is data sent
                     Regex pathPattern = new Regex(@"Path:([\/\w\d.]*)", RegexOptions.Compiled);
-                    var filePath = reqPattern.Match(rawHeader);
+                    var filePath = pathPattern.Match(rawHeader);
                     string path = filePath.Groups[1].Value;
 
-                    Regex fileData = new Regex(@"Data:(.*)", RegexOptions.Compiled);
-                    var filedata = reqPattern.Match(rawHeader);
+                    Regex fileData = new Regex(@"Data:(.*)", RegexOptions.Singleline);
+                    var filedata = fileData.Match(rawHeader);
                     // Since we used class inheritance, we can do this:
                     packet = new PostRequestHeader(path, Encoding.UTF8.GetBytes(filedata.Groups[1].Value));
                 }
