@@ -17,23 +17,25 @@ namespace MilitantChickensTranferProtocol.Library
 {
     public class ResponseHeader
     {
-        public int responseCode { get; set; }
+        public byte responseCode { get; set; }
         public byte[] description { get; set; }  // description of file
         public ResponseHeader()
         {
-
         }
-        public ResponseHeader(int _responseCode, byte[] _description)
+        public ResponseHeader(byte _responseCode, byte[] _description)
         {
             responseCode = _responseCode; //arguments
             description = _description; //arguments
         }
         public virtual byte[] ReturnRawHeader()
         {
-            string rawHeader = string.Format("Code:{0}\nDescription:{1}\n",
-                                             responseCode,
-                                             Encoding.UTF8.GetString(description));
-            return Encoding.UTF8.GetBytes(rawHeader);
+           byte[] rawheader = new byte[description.Length + 1];
+           rawheader[0] = responseCode;
+           for(int i=1; i < description.Length+1; i++)
+            {
+                rawheader[i] = description[i-1];
+            }
+           return rawheader;
         }
 
         public void Send(BinaryWriter _writer, BufferedStream _stream)

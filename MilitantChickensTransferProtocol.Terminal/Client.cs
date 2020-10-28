@@ -82,7 +82,6 @@ namespace MilitantChickensTransferProtocol.Terminal
                     {
                         while (responseReader.header.responseCode != 3)
                         {
-                            Console.WriteLine(responseReader.header.description.Length);
                             fs.Write(responseReader.header.description, 0, responseReader.header.description.Length);
                             fs.Flush();
                             len = IPAddress.NetworkToHostOrder(reader.ReadInt32());
