@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Peter\\Desktop\\test\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj": {}
+    "C:\\Users\\Peter\\Desktop\\test2\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Peter\\Desktop\\test\\MilitantChickens-TP\\MilitantChickensTranferProtocol.Library\\MilitantChickensTranferProtocol.Library.csproj": {
+    "C:\\Users\\Peter\\Desktop\\test2\\MilitantChickens-TP\\MilitantChickensTranferProtocol.Library\\MilitantChickensTranferProtocol.Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Peter\\Desktop\\test\\MilitantChickens-TP\\MilitantChickensTranferProtocol.Library\\MilitantChickensTranferProtocol.Library.csproj",
+        "projectUniqueName": "C:\\Users\\Peter\\Desktop\\test2\\MilitantChickens-TP\\MilitantChickensTranferProtocol.Library\\MilitantChickensTranferProtocol.Library.csproj",
         "projectName": "MilitantChickensTranferProtocol.Library",
-        "projectPath": "C:\\Users\\Peter\\Desktop\\test\\MilitantChickens-TP\\MilitantChickensTranferProtocol.Library\\MilitantChickensTranferProtocol.Library.csproj",
+        "projectPath": "C:\\Users\\Peter\\Desktop\\test2\\MilitantChickens-TP\\MilitantChickensTranferProtocol.Library\\MilitantChickensTranferProtocol.Library.csproj",
         "packagesPath": "C:\\Users\\Peter\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Peter\\Desktop\\test\\MilitantChickens-TP\\MilitantChickensTranferProtocol.Library\\obj\\",
+        "outputPath": "C:\\Users\\Peter\\Desktop\\test2\\MilitantChickens-TP\\MilitantChickensTranferProtocol.Library\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Peter\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -56,14 +56,14 @@
         }
       }
     },
-    "C:\\Users\\Peter\\Desktop\\test\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj": {
+    "C:\\Users\\Peter\\Desktop\\test2\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Peter\\Desktop\\test\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
+        "projectUniqueName": "C:\\Users\\Peter\\Desktop\\test2\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
         "projectName": "MilitantChickensTransferProtocol.Terminal",
-        "projectPath": "C:\\Users\\Peter\\Desktop\\test\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
+        "projectPath": "C:\\Users\\Peter\\Desktop\\test2\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\MilitantChickensTransferProtocol.Terminal.csproj",
         "packagesPath": "C:\\Users\\Peter\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Peter\\Desktop\\test\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\obj\\",
+        "outputPath": "C:\\Users\\Peter\\Desktop\\test2\\MilitantChickens-TP\\MilitantChickensTransferProtocol.Terminal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Peter\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -79,8 +79,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Peter\\Desktop\\test\\MilitantChickens-TP\\MilitantChickensTranferProtocol.Library\\MilitantChickensTranferProtocol.Library.csproj": {
-                "projectPath": "C:\\Users\\Peter\\Desktop\\test\\MilitantChickens-TP\\MilitantChickensTranferProtocol.Library\\MilitantChickensTranferProtocol.Library.csproj"
+              "C:\\Users\\Peter\\Desktop\\test2\\MilitantChickens-TP\\MilitantChickensTranferProtocol.Library\\MilitantChickensTranferProtocol.Library.csproj": {
+                "projectPath": "C:\\Users\\Peter\\Desktop\\test2\\MilitantChickens-TP\\MilitantChickensTranferProtocol.Library\\MilitantChickensTranferProtocol.Library.csproj"
               }
             }
           }

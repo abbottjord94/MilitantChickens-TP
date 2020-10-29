@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Numerics;
 
 namespace MilitantChickensTranferProtocol.Library
 {
@@ -24,7 +25,7 @@ namespace MilitantChickensTranferProtocol.Library
             return Encoding.UTF8.GetBytes(rawHeader);
         }
 
-        public override void HandleRequest(BinaryWriter _writer, BufferedStream _stream)
+        public override void HandleRequest(BinaryWriter _writer, BinaryReader _reader, BufferedStream _stream)
         {
             try
             {
@@ -45,14 +46,14 @@ namespace MilitantChickensTranferProtocol.Library
                 data.Remove(data.Length - 1);
                 string descriptionString = "List wrote successfully: ";
                 ResponseHeader response = new ResponseHeader(4, Encoding.UTF8.GetBytes(data));
-                response.Send(_writer, _stream);
+                response.Send(_writer, _stream, key);
                 Console.WriteLine(descriptionString);
             }
             catch(Exception e)
             {
                 string descriptionString = "List wrote unsuccessfully: ";
                 ResponseHeader response = new ResponseHeader(4, Encoding.UTF8.GetBytes(descriptionString));
-                response.Send(_writer, _stream);
+                response.Send(_writer, _stream, key);
                 Console.WriteLine(descriptionString);
                 Console.WriteLine(e);
             }
