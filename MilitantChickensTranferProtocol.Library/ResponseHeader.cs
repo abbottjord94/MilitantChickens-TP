@@ -58,6 +58,10 @@ namespace MilitantChickensTranferProtocol.Library
             {
                 //description
             }
+            else if (responseCode == 4)
+            {
+                //List response code
+            }
         }
 
         static byte[] dencrypt(byte[] _msg, BigInteger _key)

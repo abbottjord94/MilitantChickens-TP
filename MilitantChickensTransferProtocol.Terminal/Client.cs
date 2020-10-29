@@ -122,6 +122,22 @@ namespace MilitantChickensTransferProtocol.Terminal
                             return 0;
                         }
                     }
+                    //ListRequest -- requestCode = 4, ResponeHeader.cs -> responsecode == 4
+                    else if(responseReader.header.responseCode == 4)
+                    {
+                        List<string> directoryList = new List<string>();
+                        FileStream fs = new FileStream(filename, FileMode.CreateNew);
+                        while (responseReader.header.responseCode != 3)
+                        {
+                            fs.Write(responseReader.header.description, 0, responseReader.header.description.Length);
+                            fs.Flush();
+                            len = IPAddress.NetworkToHostOrder(reader.ReadInt32());
+                            msg = reader.ReadBytes(len);
+                            responseReader = new ResponseReader(msg, s);
+                        }
+                        fs.Close();
+                        return 0;
+                    }
                     else
                     {
                         Console.WriteLine("Invalid Response Received");
