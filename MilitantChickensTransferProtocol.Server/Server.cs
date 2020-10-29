@@ -29,8 +29,49 @@ namespace MilitantChickensTransferProtocol.Server
             return key;
         }
 
+
+       static void Option(string[] args)
+        {
+            //C:\Users\Edmar\Desktop\Digital
+            foreach (string arg in args)
+            {
+                switch (arg)
+                {
+                    case "--encryption":
+                        Console.WriteLine("encypt");
+                        break;
+
+                    case "--other-option":
+                        Console.WriteLine("option");
+                        break;
+
+                    case "--root-dir":
+                        Console.WriteLine("--root-dir");
+
+                        if(args[0] == "C")
+                        {
+                            Console.WriteLine(args[0]);
+                        }
+                      
+
+
+
+                        break;
+                    case "server.exe":
+                        break;
+                    default:
+                       // Console.WriteLine(arg[arg.Length-1]);
+                        
+                        break;
+
+                }
+                
+            }
+        }
         static void Main(string[] args)
         {
+            Option( args);
+            
             listener.Start();
             Console.WriteLine("Server listening on port {0}", ListenPort);
             while (true)
