@@ -34,7 +34,7 @@ namespace MilitantChickensTransferProtocol.UnitTests
         [Test]
         public void HandleRequestTest()
         {
-            //Test to make sure that requests are successfully handled
+            //Test to make sure that requests are successfully handled.
 
             Client testClient = new Client();
             RequestHeader testHeader = new GetRequestHeader("cheese.txt");
@@ -83,11 +83,11 @@ namespace MilitantChickensTransferProtocol.UnitTests
             Client testClient = new Client();
             RequestHeader testHeader = new PostRequestHeader("cheese.txt");
             ResponseHeader testResponse = new ResponseHeader();
+            ResponseHeader goodResponse = new ResponseHeader(1, Encoding.UTF8.GetBytes("OK"));
             testClient.Connect("127.0.0.1", 9001);
             testClient.SendHeader(testHeader.ReturnRawHeader());
-            // Not finished yet
-
-            Assert.Pass();
+            if(testResponse == goodResponse) Assert.Pass();
+            else Assert.Fail();
         }
     }
 
