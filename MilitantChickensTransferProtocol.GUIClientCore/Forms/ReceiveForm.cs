@@ -17,7 +17,19 @@ namespace MilitantChickensTransferProtocol.GUIClientCore.Forms
         }
         private void requestButton_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                string file = filePathBox.Text;
+                RequestHeader clientHeader = new GetRequestHeader(file, Program.client.key);
+                byte[] requestHeader = clientHeader.ReturnRawHeader();
+                Program.client.SendHeader(requestHeader);
+                Program.client.HandleResponse(false, file);
+                messageBox.Text = "Success!";
+            }
+            catch (Exception ex)
+            {
+                messageBox.Text = ex.Message;
+            }
         }
     }
 }

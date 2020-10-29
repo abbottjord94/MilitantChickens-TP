@@ -19,6 +19,9 @@
             }
             base.Dispose(disposing);
         }
+        private System.Windows.Forms.TextBox filePathBox;
+        private System.Windows.Forms.Button requestButton;
+        private System.Windows.Forms.Label messageBox;
 
         #region Windows Form Designer generated code
 
@@ -30,6 +33,7 @@
         {
             this.filePathBox = new System.Windows.Forms.TextBox();
             this.requestButton = new System.Windows.Forms.Button();
+            this.messageBox = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // filePathBox
@@ -49,6 +53,17 @@
             this.requestButton.UseVisualStyleBackColor = true;
             this.requestButton.Click += new System.EventHandler(this.requestButton_Click);
             // 
+            // messageBox
+            // 
+            this.Controls.Add(this.messageBox);
+            this.messageBox.AutoSize = true;
+            this.messageBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageBox.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.messageBox.Location = new System.Drawing.Point(141, 223);
+            this.messageBox.Name = "messageBox";
+            this.messageBox.Size = new System.Drawing.Size(174, 20);
+            this.messageBox.TabIndex = 2;
+            this.messageBox.Text = "Fuck You Visual Studio";
             // ReceiveForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -65,8 +80,5 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox filePathBox;
-        private System.Windows.Forms.Button requestButton;
     }
 }
