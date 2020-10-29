@@ -1,4 +1,4 @@
-﻿namespace MilitantChickensTransferProtocol.GUIClient
+﻿namespace MilitantChickensTransferProtocol.GUIClientCore
 {
     partial class MainForm
     {
@@ -211,6 +211,8 @@
         private FontAwesome.Sharp.IconButton maximizeButton;
         private FontAwesome.Sharp.IconButton closeButton;
         private System.Windows.Forms.Panel childFormPanel;
+
     }
 }
+
 
