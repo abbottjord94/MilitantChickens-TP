@@ -33,6 +33,10 @@ namespace MilitantChickensTransferProtocol.Server
        static void Option(string[] args)
         {
             //C:\Users\Edmar\Desktop\Digital
+
+            string path;
+            int temp;
+            
             foreach (string arg in args)
             {
                 switch (arg)
@@ -47,12 +51,12 @@ namespace MilitantChickensTransferProtocol.Server
 
                     case "--root-dir":
                         Console.WriteLine("--root-dir");
+                        Console.WriteLine(arg.IndexOf("--root-dir")+1);
 
-                        if(args[0] == "C")
-                        {
-                            Console.WriteLine(args[0]);
-                        }
-                      
+                        // path = args[args.Length -1];
+                        temp = arg.IndexOf("--root-dir") + 1;
+                        Console.WriteLine(args[temp]);
+
 
 
 
