@@ -37,7 +37,7 @@ namespace MilitantChickensTransferProtocol.UnitTests
             //Test to make sure that requests are successfully handled
 
             Client testClient = new Client();
-            RequestHeader testHeader = new GetRequestHeader("cheese.txt");
+            RequestHeader testHeader = new GetRequestHeader("cheese.txt", testClient.key);
             ResponseHeader testResponse = new ResponseHeader();
             ResponseHeader failResponse = new ResponseHeader(2, Encoding.UTF8.GetBytes("Bad header received"));
             testClient.Connect("127.0.0.1", 9001);
@@ -52,11 +52,11 @@ namespace MilitantChickensTransferProtocol.UnitTests
             //Test to make sure that responses are successfully sent to the client
 
             Client testClient = new Client();
-            RequestHeader testHeader = new GetRequestHeader("cheese.txt");
+            RequestHeader testHeader = new GetRequestHeader("cheese.txt", testClient.key);
             ResponseHeader testResponse = new ResponseHeader();
             testClient.Connect("127.0.0.1", 9001);
             testClient.SendHeader(testHeader.ReturnRawHeader());
-            if (testClient.HandleResponse(false, "cheese.txt") == 0) Assert.Pass();
+            if (testClient.HandleResponse(false, "cheese.txt").Key == 0) Assert.Pass();
             else Assert.Fail();
         }
 
@@ -64,11 +64,11 @@ namespace MilitantChickensTransferProtocol.UnitTests
         public void HandleFailureTest()
         {
             Client testClient = new Client();
-            RequestHeader testHeader = new RequestHeader(9001, "cheese.txt");
+            RequestHeader testHeader = new RequestHeader(9001, "cheese.txt", testClient.key);
             ResponseHeader testResponse = new ResponseHeader();
             testClient.Connect("127.0.0.1", 9001);
             testClient.SendHeader(testHeader.ReturnRawHeader());
-            if (testClient.HandleResponse(false, "cheese.txt") == 0) Assert.Pass();
+            if (testClient.HandleResponse(false, "cheese.txt").Key == 0) Assert.Pass();
             else Assert.Fail();
         }
         /*
@@ -81,7 +81,7 @@ namespace MilitantChickensTransferProtocol.UnitTests
             //Test to make sure that files are being received properly.
 
             Client testClient = new Client();
-            RequestHeader testHeader = new PostRequestHeader("cheese.txt");
+            RequestHeader testHeader = new PostRequestHeader("cheese.txt", testClient.key);
             ResponseHeader testResponse = new ResponseHeader();
             testClient.Connect("127.0.0.1", 9001);
             testClient.SendHeader(testHeader.ReturnRawHeader());
@@ -115,10 +115,10 @@ namespace MilitantChickensTransferProtocol.UnitTests
         public void SendGetRequestTest()
         {
             Client testClient = new Client();
-            RequestHeader testHeader = new GetRequestHeader("cheese.txt");
+            RequestHeader testHeader = new GetRequestHeader("cheese.txt", testClient.key);
             testClient.Connect("127.0.0.1", 9001);
             testClient.SendHeader(testHeader.ReturnRawHeader());
-            if (testClient.HandleResponse(false, "cheese.txt") == 0) Assert.Pass();
+            if (testClient.HandleResponse(false, "cheese.txt").Key == 0) Assert.Pass();
             else Assert.Fail();
         }
         [Test]
@@ -126,10 +126,10 @@ namespace MilitantChickensTransferProtocol.UnitTests
         {
             Client testClient = new Client();
             byte[] testFile = File.ReadAllBytes(Path.Join(System.AppDomain.CurrentDomain.BaseDirectory, "cheese.txt"));
-            RequestHeader testHeader = new PostRequestHeader("cheese.txt", testFile);
+            RequestHeader testHeader = new PostRequestHeader("cheese.txt", testClient.key);
             testClient.Connect("127.0.0.1", 9001);
             testClient.SendHeader(testHeader.ReturnRawHeader());
-            if (testClient.HandleResponse(true, "cheese.txt") == 0) Assert.Pass();
+            if (testClient.HandleResponse(true, "cheese.txt").Key == 0) Assert.Pass();
             else Assert.Fail();
         }
 
@@ -137,10 +137,10 @@ namespace MilitantChickensTransferProtocol.UnitTests
         public void HandleFailureTest()
         {
             Client testClient = new Client();
-            RequestHeader testHeader = new GetRequestHeader("cheese.txt");
+            RequestHeader testHeader = new GetRequestHeader("cheese.txt", testClient.key);
             testClient.Connect("127.0.0.1", 9001);
             testClient.SendHeader(testHeader.ReturnRawHeader());
-            if (testClient.HandleResponse(false, "cheese.txt") == 0) Assert.Pass();
+            if (testClient.HandleResponse(false, "cheese.txt").Key == 0) Assert.Pass();
             else Assert.Fail();
         }
     }

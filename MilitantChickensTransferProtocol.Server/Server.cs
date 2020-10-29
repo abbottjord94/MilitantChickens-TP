@@ -48,7 +48,7 @@ namespace MilitantChickensTransferProtocol.Server
 
                 try
                 {
-                    BufferedStream stream = new BufferedStream(client.GetStream());
+                    BufferedStream stream = new BufferedStream(client.GetStream()); 
                     reader = new BinaryReader(stream);
                     writer = new BinaryWriter(stream);
 
@@ -82,7 +82,7 @@ namespace MilitantChickensTransferProtocol.Server
                         ResponseHeader failResponse = new ResponseHeader(2, Encoding.UTF8.GetBytes("Bad header received"));
                         failResponse.Send(writer, stream, client_key);
                     }
-
+                    stream.Flush();
                 }
                 catch (Exception e)
                 {

@@ -23,8 +23,7 @@ namespace MilitantChickensTransferProtocol.GUIClientCore.Forms
                 RequestHeader clientHeader = new PostRequestHeader(file, Program.client.key);
                 byte[] requestHeader = clientHeader.ReturnRawHeader();
                 Program.client.SendHeader(requestHeader);
-                Program.client.HandleResponse(true, file);
-                messageBox.Text = "Success!";
+                messageBox.Text = Program.client.HandleResponse(true, file).Value;
             }
             catch (Exception ex)
             {
