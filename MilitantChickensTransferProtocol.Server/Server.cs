@@ -15,7 +15,8 @@ namespace MilitantChickensTransferProtocol.Server
         public static TcpListener listener = new TcpListener(IPAddress.Any, ListenPort);
         public static TcpClient client = null;
         public static RequestReader requestReader = null;
-
+        public static string path = System.AppDomain.CurrentDomain.BaseDirectory;
+        public static bool encryption = false;
         static BigInteger p = BigInteger.Parse("B10B8F96A080E01DDE92DE5EAE5D54EC52C99FBCFB06A3C69A6A9DCA52D23B616073E28675A23D189838EF1E2EE652C013ECB4AEA906112324975C3CD49B83BFACCBDD7D90C4BD7098488E9C219A73724EFFD6FAE5644738FAA31A4FF55BCCC0A151AF5F0DC8B4BD45BF37DF365C1A65E68CFDA76D4DA708DF1FB2BC2E4A4371", System.Globalization.NumberStyles.HexNumber);
         static BigInteger g = BigInteger.Parse("A4D1CBD5C3FD34126765A442EFB99905F8104DD258AC507FD6406CFF14266D31266FEA1E5C41564B777E690F5504F213160217B4B01B886A5E91547F9E2749F4D7FBD7D3B9A92EE1909D0D2263F80A76A6A24C087A091F531DBF0A0169B6A28AD662A4D18E73AFA32D779D5918D08BC8858F4DCEF97C2A24855E6EEB22B3B2E5", System.Globalization.NumberStyles.HexNumber);
         static BigInteger a = generateBigInt();
@@ -29,8 +30,40 @@ namespace MilitantChickensTransferProtocol.Server
             return key;
         }
 
+
+        static void Option(string[] args)
+        {
+            int temp;
+            //C:\Users\Edmar\Desktop\Digital
+            foreach (string arg in args)
+            {
+                switch (arg)
+                {
+                    case "--encryption":
+                        encryption = true;
+                        break;
+
+             
+
+                    case "--root-dir":
+                      
+                        temp = arg.IndexOf("--root-dir") + 1;
+                        
+                        path = args[temp];
+
+
+                        break;
+                    case "server.exe":
+                        break;
+                    
+
+                }
+
+            }
+        }
         static void Main(string[] args)
         {
+            Option(args);
             listener.Start();
             Console.WriteLine("Server listening on port {0}", ListenPort);
             while (true)
@@ -48,7 +81,7 @@ namespace MilitantChickensTransferProtocol.Server
 
                 try
                 {
-                    BufferedStream stream = new BufferedStream(client.GetStream()); 
+                    BufferedStream stream = new BufferedStream(client.GetStream());
                     reader = new BinaryReader(stream);
                     writer = new BinaryWriter(stream);
 
@@ -82,7 +115,7 @@ namespace MilitantChickensTransferProtocol.Server
                         ResponseHeader failResponse = new ResponseHeader(2, Encoding.UTF8.GetBytes("Bad header received"));
                         failResponse.Send(writer, stream, client_key);
                     }
-                    stream.Flush();
+
                 }
                 catch (Exception e)
                 {
