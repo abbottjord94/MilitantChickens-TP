@@ -1,4 +1,4 @@
-﻿namespace MilitantChickensTransferProtocol.GUIClient.Forms
+﻿namespace MilitantChickensTransferProtocol.GUIClientCore.Forms
 {
     partial class ReceiveForm
     {
@@ -47,6 +47,7 @@
             this.requestButton.TabIndex = 1;
             this.requestButton.Text = "Request File";
             this.requestButton.UseVisualStyleBackColor = true;
+            this.requestButton.Click += new System.EventHandler(this.requestButton_Click);
             // 
             // ReceiveForm
             // 

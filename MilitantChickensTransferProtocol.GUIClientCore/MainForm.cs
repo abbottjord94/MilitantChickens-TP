@@ -9,9 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
 using System.Runtime.InteropServices;
-using MilitantChickensTransferProtocol.GUIClient.Forms;
+using MilitantChickensTransferProtocol.GUIClientCore.Forms;
+using MilitantChickensTranferProtocol.Library;
+using MilitantChickensTransferProtocol.Terminal;
 
-namespace MilitantChickensTransferProtocol.GUIClient
+namespace MilitantChickensTransferProtocol.GUIClientCore
 {
     public partial class MainForm : Form
     {
@@ -114,7 +116,7 @@ namespace MilitantChickensTransferProtocol.GUIClient
             if (WindowState == FormWindowState.Normal)
             {
                 WindowState = FormWindowState.Maximized;
-               }
+            }
             else
             {
                 WindowState = FormWindowState.Normal;
@@ -133,4 +135,6 @@ namespace MilitantChickensTransferProtocol.GUIClient
             }
         }
     }
+
 }
+

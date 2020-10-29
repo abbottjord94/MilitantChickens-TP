@@ -45,14 +45,14 @@ namespace MilitantChickensTranferProtocol.Library
                 data.Remove(data.Length - 1);
                 string descriptionString = "List wrote successfully: ";
                 ResponseHeader response = new ResponseHeader(4, Encoding.UTF8.GetBytes(data));
-                response.Send(_writer, _stream);
+                //response.Send(_writer, _stream);
                 Console.WriteLine(descriptionString);
             }
             catch(Exception e)
             {
                 string descriptionString = "List wrote unsuccessfully: ";
                 ResponseHeader response = new ResponseHeader(4, Encoding.UTF8.GetBytes(descriptionString));
-                response.Send(_writer, _stream);
+                //response.Send(_writer, _stream);
                 Console.WriteLine(descriptionString);
                 Console.WriteLine(e);
             }
