@@ -77,7 +77,7 @@ namespace MilitantChickensTransferProtocol.Terminal
 
         }
 
-        public int HandleResponse(bool isPost, string filename)
+        public KeyValuePair<int, string> HandleResponse(bool isPost, string filename)
         {
             try
             {
@@ -91,7 +91,7 @@ namespace MilitantChickensTransferProtocol.Terminal
                     if (responseReader.header.responseCode == 2)
                     {
                         Console.WriteLine(Encoding.UTF8.GetString(responseReader.header.description));
-                        return -1;
+                        return new KeyValuePair<int, string>(-1, Encoding.UTF8.GetString(responseReader.header.description));
                     }
                     else if (responseReader.header.responseCode == 1)
                     {
@@ -106,7 +106,7 @@ namespace MilitantChickensTransferProtocol.Terminal
                             writer.Write(IPAddress.NetworkToHostOrder(filePart.Length));
                             writer.Write(filePart);
                             writer.Flush();
-                            return 0;
+                            return new KeyValuePair<int, string>(0, "Successfully Uploaded File");
                         }
                         else
                         {
@@ -119,7 +119,7 @@ namespace MilitantChickensTransferProtocol.Terminal
                                 writer.Flush();
                                 filePart = new byte[1024];
                             }
-                            return 0;
+                            return new KeyValuePair<int, string>(0, "Successfully Uploaded File");
                         }
                     }
                     //ListRequest -- requestCode = 4, ResponeHeader.cs -> responsecode == 4
@@ -136,12 +136,12 @@ namespace MilitantChickensTransferProtocol.Terminal
                             responseReader = new ResponseReader(msg, s);
                         }
                         fs.Close();
-                        return 0;
+                        return new KeyValuePair<int, string>(0, "List go brrrr");
                     }
                     else
                     {
                         Console.WriteLine("Invalid Response Received");
-                        return -1;
+                        return new KeyValuePair<int, string>(-1, "Invalid Response Received");
                     }
 
                  }
@@ -155,7 +155,7 @@ namespace MilitantChickensTransferProtocol.Terminal
                     if (responseReader.header.responseCode == 2)
                     {
                         Console.WriteLine(Encoding.UTF8.GetString(responseReader.header.description));
-                        return 0;
+                        return new KeyValuePair<int, string>(0, Encoding.UTF8.GetString(responseReader.header.description));
                     }
                     else if (responseReader.header.responseCode == 1)
                     {
@@ -171,19 +171,19 @@ namespace MilitantChickensTransferProtocol.Terminal
                         }
                         Console.WriteLine("File Received: {0}", filename);
                         fs.Close();
-                        return 0;
+                        return new KeyValuePair<int, string>(0, "Successfully Received File");
                     }
                     else
                     {
                         Console.WriteLine("Bad response received");
-                        return 0;
+                        return new KeyValuePair<int, string>(-1, "Bad response received");
                     }
                 }
             }
             catch(Exception e)
             {
                 Console.WriteLine(e);
-                return -1;
+                return new KeyValuePair<int, string>(-1, e.Message);
             }
         }
 
