@@ -1,3 +1,5 @@
+This is a group project to create a custom messaging protocol to send files across a TCP connection, made for CS 346 (Telecommunications). It implements the protocol described below, and includes a client and server program. Beyond these initial requirements, this implementation can also send a file of any size and can encrypt the network stream via a randomly-generated key, exchanged via the Diffie-Hellman method.
+
 # MilitantChickens-TP
 
 Link to google doc describing protocol: 
